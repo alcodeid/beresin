@@ -244,6 +244,72 @@ body.noscroll{overflow:hidden}
 .empty{padding:20px 16px;border:1.5px dashed var(--line);border-radius:18px;text-align:center;color:var(--muted)}
 .empty a{font-weight:700;color:var(--primary-d)}
 
+.t10{background:#f6e7c1}.t11{background:#ffd9d4}
+
+/* Animasi transisi ringan */
+@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.view:not([hidden]){animation:viewIn .28s ease both}
+.result:not([hidden]),.msg:not([hidden]){animation:fadeUp .25s ease both}
+.btn{transition:background-color .15s,border-color .15s,transform .1s,opacity .15s}
+.btn:active:not(:disabled){transform:scale(.98)}
+.chip{transition:background-color .15s,border-color .15s,color .15s,transform .1s}
+.chip:active{transform:scale(.97)}
+.tile{transition:border-color .15s,transform .15s,box-shadow .2s}
+.tile:hover{box-shadow:0 8px 20px rgba(16,40,43,.08)}
+.fav{transition:background-color .15s,color .15s,transform .12s}
+.fav:active{transform:translateY(-50%) scale(.88)}
+.icon-btn{transition:border-color .15s,background-color .15s,transform .1s}
+.icon-btn:active:not(:disabled){transform:scale(.94)}
+.menu-btn{transition:border-color .15s,transform .1s}
+.menu-btn:active{transform:scale(.94)}
+.drawer a.nav{transition:background-color .15s,color .15s}
+.search input,input[type=text],input[type=number],textarea,select{transition:border-color .15s,outline-color .15s}
+.msg.ok{background:#e3f2ed;color:#0a5b4c}
+
+/* Catatan */
+.notebar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.notebar .search{margin:0;flex:1 1 220px}
+.notebar .search input{min-height:50px}
+.notebar .btn{flex:none}
+.notes{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.notes button.note{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;transition:border-color .15s,box-shadow .2s,transform .1s}
+.notes button.note:hover{border-color:var(--primary);box-shadow:0 6px 16px rgba(16,40,43,.07)}
+.notes button.note:active{transform:scale(.995)}
+.note .nt{font-weight:700;font-size:16px;line-height:1.3;word-break:break-word}
+.note .nt.untitled{color:var(--muted);font-weight:600}
+.note .np{font-size:14px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.note .nd{font-size:12px;color:var(--muted);margin-top:6px}
+.edittop{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.edittop .btn{min-height:42px;padding:0 16px;font-size:15px}
+#n-title{font-weight:700;font-size:18px;margin-bottom:10px}
+#n-body{min-height:300px}
+.savestate{font-size:13px;color:var(--muted)}
+
+/* Timer Pomodoro */
+.pm{text-align:center}
+.pm-focus{--ring:#0c7a68}.pm-short{--ring:#2f6fd6}.pm-long{--ring:#7a54c9}
+.pm .chips{justify-content:center}
+.pm .chip.on{background:var(--ring);border-color:var(--ring);color:#fff}
+.ringwrap{position:relative;width:min(280px,78vw);margin:20px auto 12px}
+.ring{width:100%;height:auto;display:block}
+.rtrack{fill:none;stroke:#e1ebe8;stroke-width:12}
+.rprog{fill:none;stroke:var(--ring);stroke-width:12;stroke-linecap:round;stroke-dasharray:678.58;stroke-dashoffset:0;transition:stroke-dashoffset .3s linear,stroke .3s}
+.ringtext{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ringtext .time{font-size:clamp(40px,12vw,56px);font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1.1}
+.ringtext .lab{font-weight:700;color:var(--ring);margin-top:2px}
+.ringtext .sub{font-size:14px;color:var(--muted)}
+.actions.center{justify-content:center}
+.actions.center{flex-wrap:nowrap}
+.actions.center .btn{flex:1 1 0;min-width:0;max-width:130px;padding:0 10px}
+.bars{display:flex;align-items:flex-end;gap:8px;height:120px;margin:16px 0 14px}
+.bars .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%}
+.bars .bar{width:100%;max-width:36px;background:#cfe6df;border-radius:8px 8px 4px 4px;min-height:4px;transition:height .3s ease}
+.bars .bar.today{background:var(--primary)}
+.bars small{font-size:12px;color:var(--muted)}
+.bars b{font-size:12px}
+.setrow{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));margin-bottom:12px}
+
 .foot{margin-top:26px;text-align:center;font-size:13px;color:var(--muted)}
 
 @media (min-width:600px){
@@ -261,7 +327,7 @@ body.noscroll{overflow:hidden}
   .irow{padding-bottom:10px;border-bottom:1px solid var(--line)}
   .btn.stack{width:100%}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
 </style>
 </head>
 <body>
@@ -871,6 +937,103 @@ body.noscroll{overflow:hidden}
       </div>
     </section>
 
+    <!-- ============ CATATAN ============ -->
+    <section class="view" data-view="catatan" data-title="Catatan | Beresin" hidden>
+      <div class="head">
+        <h2>Catatan</h2>
+        <p>Tulis ide, daftar belanja, atau apa saja. Catatan tersimpan otomatis saat kamu mengetik.</p>
+      </div>
+
+      <div id="n-listpane">
+        <div class="notebar">
+          <div class="search" role="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="n-search" type="search" placeholder="Cari judul catatan" aria-label="Cari catatan berdasarkan judul" autocomplete="off" spellcheck="false">
+            <button class="clear" id="n-sclear" type="button" aria-label="Hapus pencarian" hidden>&times;</button>
+          </div>
+          <button class="btn primary" id="n-new" type="button">Catatan baru</button>
+        </div>
+        <ul class="notes" id="n-list"></ul>
+        <div class="empty" id="n-empty" hidden>Belum ada catatan. Ketuk "Catatan baru" untuk mulai menulis.</div>
+        <div class="empty" id="n-none" hidden></div>
+        <p class="hint" id="n-storewarn" hidden>Penyimpanan browser sedang tidak aktif, jadi catatanmu akan hilang saat halaman ditutup.</p>
+      </div>
+
+      <div id="n-editpane" hidden>
+        <div class="card">
+          <div class="edittop">
+            <button class="btn ghost" id="n-back" type="button">Semua catatan</button>
+            <span class="savestate" id="n-status" role="status" aria-live="polite">Tersimpan otomatis</span>
+          </div>
+          <input id="n-title" type="text" maxlength="100" placeholder="Judul catatan" aria-label="Judul catatan" autocomplete="off">
+          <textarea id="n-body" placeholder="Tulis catatanmu di sini..." aria-label="Isi catatan"></textarea>
+          <div class="actions">
+            <button class="btn primary stack" id="n-copy" type="button">Salin catatan</button>
+            <button class="btn ghost stack" id="n-del" type="button">Hapus catatan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMER POMODORO ============ -->
+    <section class="view" data-view="pomodoro" data-title="Timer Pomodoro | Beresin" hidden>
+      <div class="head">
+        <h2>Timer Pomodoro</h2>
+        <p>Fokus belajar atau bekerja dalam sesi singkat, diselingi istirahat.</p>
+      </div>
+
+      <div class="card pm pm-focus" id="pm-card">
+        <div class="chips" id="pm-modes" role="group" aria-label="Pilih jenis sesi">
+          <button type="button" class="chip on" data-m="focus">Fokus</button>
+          <button type="button" class="chip" data-m="short">Istirahat pendek</button>
+          <button type="button" class="chip" data-m="long">Istirahat panjang</button>
+        </div>
+        <div class="ringwrap">
+          <svg class="ring" viewBox="0 0 240 240" aria-hidden="true">
+            <circle class="rtrack" cx="120" cy="120" r="108"/>
+            <circle class="rprog" id="pm-ring" cx="120" cy="120" r="108" transform="rotate(-90 120 120)"/>
+          </svg>
+          <div class="ringtext">
+            <div class="time" id="pm-time" role="timer">25:00</div>
+            <div class="lab" id="pm-label">Fokus</div>
+            <div class="sub" id="pm-sub"></div>
+          </div>
+        </div>
+        <div class="actions center">
+          <button class="btn primary" id="pm-toggle" type="button">Mulai</button>
+          <button class="btn ghost" id="pm-reset" type="button">Reset</button>
+          <button class="btn ghost" id="pm-skip" type="button">Lewati</button>
+        </div>
+        <div class="msg ok" id="pm-msg" role="status" hidden></div>
+      </div>
+
+      <div class="card">
+        <h3>Catatan sesi fokus</h3>
+        <div class="stats" style="margin-top:0">
+          <div class="stat main"><b id="pm-today">0</b><span>Sesi fokus hari ini</span></div>
+          <div class="stat"><b id="pm-mins">0</b><span>Menit fokus hari ini</span></div>
+          <div class="stat"><b id="pm-total">0</b><span>Total semua sesi</span></div>
+        </div>
+        <div class="bars" id="pm-bars" aria-label="Sesi fokus 7 hari terakhir"></div>
+        <button class="btn ghost stack" id="pm-clearlog" type="button">Hapus catatan sesi</button>
+      </div>
+
+      <details class="card">
+        <summary>Pengaturan</summary>
+        <div class="setrow">
+          <div class="field"><label class="lb" for="pm-s-focus">Fokus (menit)</label><input id="pm-s-focus" type="number" inputmode="numeric" min="1" max="180"></div>
+          <div class="field"><label class="lb" for="pm-s-short">Istirahat pendek</label><input id="pm-s-short" type="number" inputmode="numeric" min="1" max="180"></div>
+          <div class="field"><label class="lb" for="pm-s-long">Istirahat panjang</label><input id="pm-s-long" type="number" inputmode="numeric" min="1" max="180"></div>
+          <div class="field"><label class="lb" for="pm-s-every">Panjang setiap (sesi)</label><input id="pm-s-every" type="number" inputmode="numeric" min="1" max="12"></div>
+        </div>
+        <div class="field"><label class="check"><input type="checkbox" id="pm-sound"> Bunyikan suara saat sesi berakhir</label></div>
+        <div class="field"><label class="check"><input type="checkbox" id="pm-notify"> Kirim notifikasi saat sesi berakhir</label>
+          <p class="hint" id="pm-nhint" style="margin-top:2px"></p></div>
+        <div class="field"><label class="check"><input type="checkbox" id="pm-auto"> Mulai otomatis sesi berikutnya</label></div>
+        <button class="btn ghost stack" id="pm-test" type="button">Coba suara</button>
+      </details>
+    </section>
+
   </main>
 
   <p class="foot">Beresin dibuat untuk membantumu</p>
@@ -994,13 +1157,15 @@ const appStore = (() => {
   const mem = {};
   try { localStorage.setItem('beresin.test', '1'); localStorage.removeItem('beresin.test'); } catch (e) { ok = false; }
   return {
+    persistent: ok,
     get(k, d) {
       try { if (ok) { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } } catch (e) { /* pakai memori */ }
       return mem[k] !== undefined ? mem[k] : d;
     },
     set(k, v) {
       mem[k] = v;
-      if (ok) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* abaikan */ } }
+      if (ok) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return false; } }
+      return true;
     }
   };
 })();
@@ -1014,7 +1179,9 @@ const ICONS = {
   qr: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3h-3zM20 14v6M14 20h3"/>',
   tugas: '<path d="M6 17v-6a6 6 0 0 1 12 0v6l1.5 2h-15z"/><path d="M10 21h4"/>',
   kata: '<path d="M4 6h16M4 12h10M4 18h14"/>',
-  ipk: '<path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/>'
+  ipk: '<path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/>',
+  catatan: '<path d="M5 20l1-4L17 5l3 3L9 19z"/><path d="M14.5 7.5l3 3"/>',
+  pomodoro: '<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9.5 3h5"/>'
 };
 const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 17l-5.2 2.7 1-5.9L3.5 9.7l5.9-.8z"/></svg>';
 
@@ -1033,13 +1200,17 @@ const TOOLS = [
     kw: 'qr code kode tautan link url barcode scan pindai bagikan' },
   { id: 'tugas', tint: 't7', title: 'Pengingat Tugas', desc: 'Catat tugas, tenggat, dan jadwal kuliah',
     kw: 'tugas pengingat tenggat deadline jadwal kuliah dosen catatan notifikasi prioritas daftar todo' },
+  { id: 'catatan', tint: 't10', title: 'Catatan', desc: 'Tulis ide, daftar belanja, dan lainnya',
+    kw: 'catatan note ide daftar belanja tulis memo salin simpan otomatis jurnal todo kegiatan' },
+  { id: 'pomodoro', tint: 't11', title: 'Timer Pomodoro', desc: 'Fokus belajar dengan sesi dan istirahat teratur',
+    kw: 'pomodoro timer fokus belajar kerja istirahat break sesi konsentrasi hitung mundur produktif' },
   { id: 'kata', tint: 't4', title: 'Hitung Kata', desc: 'Cek jumlah kata dan karakter tugasmu',
     kw: 'kata karakter kalimat paragraf tulisan esai makalah skripsi hitung jumlah teks' },
   { id: 'ipk', tint: 't5', title: 'Hitung IPK', desc: 'Hitung IPS semester dan IPK kumulatif',
     kw: 'ipk ips nilai sks semester kuliah hitung indeks prestasi kampus' }
 ];
 const toolById = id => TOOLS.find(t => t.id === id);
-const POPULAR = ['pdf', 'kompres', 'latar', 'tugas'];   // tampil tetap di beranda sebagai Alat Populer
+const POPULAR = ['pdf', 'kompres', 'latar', 'tugas', 'catatan', 'pomodoro'];   // tampil tetap di beranda sebagai Alat Populer
 const HISTORY_MAX = 10;
 
 let favs = appStore.get('beresin.favorit', []);
@@ -2724,19 +2895,372 @@ const QR = (() => {
   render();
   checkReminders();
 })();
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("./sw.js")
-        .then((registration) => {
-          console.log("Service Worker Beresin aktif:", registration.scope);
-        })
-        .catch((error) => {
-          console.error("Gagal mendaftarkan Service Worker:", error);
-        });
+
+/* ========== 10. Catatan ========== */
+(() => {
+  const listPane = $('#n-listpane'), editPane = $('#n-editpane');
+  const search = $('#n-search'), sclear = $('#n-sclear'), list = $('#n-list');
+  const fTitle = $('#n-title'), fBody = $('#n-body'), status = $('#n-status');
+  const copyBtn = $('#n-copy');
+  let notes = appStore.get('beresin.notes', []);
+  notes = (Array.isArray(notes) ? notes : []).filter(n => n && n.id);
+  let cur = null, timer = null, copyTimer = null;
+  if (!appStore.persistent) show($('#n-storewarn'));
+
+  const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const isEmpty = n => !n.title.trim() && !n.body.trim();
+
+  function persist() {
+    clearTimeout(timer);
+    const ok = appStore.set('beresin.notes', notes);
+    status.textContent = ok ? 'Tersimpan otomatis' : 'Gagal menyimpan, penyimpanan browser penuh';
+  }
+
+  function renderList() {
+    const q = norm(search.value);
+    sclear.hidden = !search.value;
+    const sorted = notes.slice().sort((a, b) => b.updated - a.updated);
+    const hits = q ? sorted.filter(n => norm(n.title).includes(q)) : sorted;
+    list.innerHTML = '';
+    hits.forEach(n => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'note';
+      const t = document.createElement('div');
+      t.className = 'nt' + (n.title.trim() ? '' : ' untitled');
+      t.textContent = n.title.trim() || 'Tanpa judul';
+      const p = document.createElement('div');
+      p.className = 'np';
+      p.textContent = n.body.replace(/\s+/g, ' ').trim() || 'Catatan kosong';
+      const d = document.createElement('div');
+      d.className = 'nd';
+      d.textContent = 'Diubah ' + relativeTime(n.updated).toLowerCase();
+      b.append(t, p, d);
+      b.addEventListener('click', () => openNote(n.id));
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+    $('#n-empty').hidden = notes.length > 0;
+    const none = $('#n-none');
+    none.hidden = !(notes.length > 0 && hits.length === 0);
+    if (!none.hidden) none.textContent = `Tidak ada catatan dengan judul "${search.value.trim()}".`;
+  }
+
+  function openNote(id, focusTitle) {
+    cur = notes.find(n => n.id === id);
+    if (!cur) return;
+    fTitle.value = cur.title;
+    fBody.value = cur.body;
+    status.textContent = 'Tersimpan otomatis';
+    copyBtn.textContent = 'Salin catatan';
+    listPane.hidden = true;
+    editPane.hidden = false;
+    window.scrollTo(0, 0);
+    (focusTitle ? fTitle : fBody).focus();
+  }
+
+  function closeEditor() {
+    if (!cur) return;
+    if (isEmpty(cur)) notes = notes.filter(n => n !== cur);   // buang catatan yang kosong
+    persist();
+    cur = null;
+    editPane.hidden = true;
+    listPane.hidden = false;
+    renderList();
+  }
+
+  function onType() {
+    if (!cur) return;
+    cur.title = fTitle.value;
+    cur.body = fBody.value;
+    cur.updated = Date.now();
+    status.textContent = 'Menyimpan...';
+    clearTimeout(timer);
+    timer = setTimeout(persist, 300);
+  }
+  fTitle.addEventListener('input', onType);
+  fBody.addEventListener('input', onType);
+
+  $('#n-new').addEventListener('click', () => {
+    const n = { id: uid(), title: '', body: '', created: Date.now(), updated: Date.now() };
+    notes.unshift(n);
+    openNote(n.id, true);
+  });
+  $('#n-back').addEventListener('click', closeEditor);
+  search.addEventListener('input', renderList);
+  sclear.addEventListener('click', () => { search.value = ''; renderList(); search.focus(); });
+
+  async function copyText(text) {
+    try { await navigator.clipboard.writeText(text); return true; } catch (e) { /* coba cara lama */ }
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      return ok;
+    } catch (e) { return false; }
+  }
+  copyBtn.addEventListener('click', async () => {
+    if (!cur) return;
+    const title = cur.title.trim(), body = cur.body.trim();
+    if (!title && !body) { copyBtn.textContent = 'Catatan masih kosong'; }
+    else {
+      const ok = await copyText(title && body ? `${title}\n\n${body}` : (title || body));
+      copyBtn.textContent = ok ? 'Tersalin!' : 'Gagal menyalin';
+    }
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(() => { copyBtn.textContent = 'Salin catatan'; }, 1800);
+  });
+
+  $('#n-del').addEventListener('click', () => {
+    if (!cur) return;
+    const label = cur.title.trim() || 'tanpa judul';
+    if (!isEmpty(cur) && !confirm(`Hapus catatan "${label}"?`)) return;
+    notes = notes.filter(n => n !== cur);
+    persist();
+    cur = null;
+    editPane.hidden = true;
+    listPane.hidden = false;
+    renderList();
+  });
+
+  /* Simpan segera kalau halaman ditutup atau pindah ke alat lain */
+  const flush = () => { if (cur) persist(); };
+  addEventListener('pagehide', flush);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) flush(); });
+  addEventListener('hashchange', () => { if (cur && location.hash !== '#/catatan') closeEditor(); });
+
+  renderList();
+})();
+
+/* ========== 11. Timer Pomodoro ========== */
+(() => {
+  const MODES = { focus: 'Fokus', short: 'Istirahat pendek', long: 'Istirahat panjang' };
+  const DEF = { focus: 25, short: 5, long: 15, every: 4, sound: true, notify: false, auto: false };
+  const CIRC = 678.58;
+  const view = $('.view[data-view="pomodoro"]');
+
+  /* ---- Pengaturan, catatan sesi, dan keadaan timer ---- */
+  let set = Object.assign({}, DEF, appStore.get('beresin.pomoset', {}));
+  ['focus', 'short', 'long', 'every'].forEach(k => {
+    const v = Math.round(+set[k]);
+    set[k] = Number.isFinite(v) && v >= 1 ? Math.min(v, k === 'every' ? 12 : 180) : DEF[k];
+  });
+  const totalMs = m => set[m] * 60000;
+  let log = appStore.get('beresin.pomolog', {});
+  if (!log || typeof log !== 'object' || Array.isArray(log)) log = {};
+  let st = appStore.get('beresin.pomo', null);
+  if (!st || !MODES[st.mode]) st = { mode: 'focus', running: false, endAt: 0, remaining: totalMs('focus'), cycle: 0 };
+  st.cycle = Math.max(0, Math.floor(+st.cycle) || 0);
+  if (!st.running && !(st.remaining > 0 && st.remaining <= totalMs(st.mode))) st.remaining = totalMs(st.mode);
+
+  const saveSt = () => appStore.set('beresin.pomo', st);
+  const saveSet = () => appStore.set('beresin.pomoset', set);
+  const remainingNow = () => st.running ? Math.max(0, st.endAt - Date.now()) : st.remaining;
+  const mmss = ms => { const s = Math.ceil(ms / 1000); return `${pad2(Math.floor(s / 60))}:${pad2(s % 60)}`; };
+
+  /* ---- Suara, getar, dan notifikasi ---- */
+  let ac = null;
+  function unlockAudio() {
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      if (ac.state === 'suspended') ac.resume();
+    } catch (e) { /* tanpa suara */ }
+  }
+  function chime() {
+    if (!ac) return;
+    const t = ac.currentTime;
+    [[880, 0], [1175, 0.22], [1568, 0.44]].forEach(([f, d]) => {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = 'sine'; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t + d);
+      g.gain.exponentialRampToValueAtTime(0.25, t + d + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + d + 0.6);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t + d); o.stop(t + d + 0.65);
     });
   }
+  async function notify(body) {
+    if (!('Notification' in window) || Notification.permission !== 'granted') return;
+    const logo = $('.logo'), icon = logo ? logo.src : undefined;
+    try {
+      const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
+      if (reg && reg.active && reg.showNotification) { await reg.showNotification('Timer Pomodoro', { body, icon, badge: icon, tag: 'pomodoro' }); return; }
+    } catch (e) { /* coba cara lain */ }
+    try {
+      const n = new Notification('Timer Pomodoro', { body, icon, tag: 'pomodoro' });
+      n.onclick = () => { window.focus(); location.hash = '#/pomodoro'; n.close(); };
+    } catch (e) { /* abaikan */ }
+  }
+
+  /* ---- Catatan sesi ---- */
+  function logSession() {
+    const k = dayKey(Date.now());
+    const e = log[k] || { n: 0, min: 0 };
+    e.n++; e.min += set.focus;
+    log[k] = e;
+    appStore.set('beresin.pomolog', log);
+  }
+
+  /* ---- Tampilan ---- */
+  const el = { time: $('#pm-time'), label: $('#pm-label'), sub: $('#pm-sub'), ring: $('#pm-ring'), card: $('#pm-card'),
+    toggle: $('#pm-toggle'), msg: $('#pm-msg') };
+  const DAYN = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+
+  function renderStats() {
+    const today = log[dayKey(Date.now())] || { n: 0, min: 0 };
+    $('#pm-today').textContent = nf0.format(today.n);
+    $('#pm-mins').textContent = nf0.format(today.min);
+    $('#pm-total').textContent = nf0.format(Object.values(log).reduce((s, e) => s + (e.n || 0), 0));
+    const days = [];
+    for (let i = 6; i >= 0; i--) { const ms = Date.now() - i * 86400000; days.push({ ms, n: (log[dayKey(ms)] || {}).n || 0, today: i === 0 }); }
+    const max = Math.max(4, ...days.map(d => d.n));
+    const box = $('#pm-bars');
+    box.innerHTML = '';
+    days.forEach(d => {
+      const col = document.createElement('div'); col.className = 'col';
+      const num = document.createElement('b'); num.textContent = d.n;
+      const bar = document.createElement('div'); bar.className = 'bar' + (d.today ? ' today' : '');
+      bar.style.height = Math.max(4, Math.round(d.n / max * 80)) + 'px';
+      const lab = document.createElement('small'); lab.textContent = DAYN[new Date(d.ms).getDay()];
+      col.append(num, bar, lab);
+      box.appendChild(col);
+    });
+  }
+
+  function render() {
+    const rem = remainingNow(), tot = totalMs(st.mode);
+    el.time.textContent = mmss(rem);
+    el.ring.style.strokeDashoffset = String(CIRC * (1 - Math.min(1, rem / tot)));
+    el.card.className = 'card pm pm-' + st.mode;
+    el.label.textContent = MODES[st.mode];
+    el.sub.textContent = st.mode === 'focus' ? `Sesi ${(st.cycle % set.every) + 1} dari ${set.every}` : 'Waktunya rehat';
+    el.toggle.textContent = st.running ? 'Jeda' : (rem < tot ? 'Lanjut' : 'Mulai');
+    $$('#pm-modes .chip').forEach(c => c.classList.toggle('on', c.dataset.m === st.mode));
+    if (!view.hidden) document.title = st.running ? `${mmss(rem)} ${MODES[st.mode]} | Beresin` : view.dataset.title;
+  }
+  const say = text => { if (text) showMsg(el.msg, text); else hide(el.msg); };
+
+  /* ---- Alur timer ---- */
+  function start() {
+    unlockAudio();
+    st.endAt = Date.now() + st.remaining;
+    st.running = true;
+    say('');
+    saveSt(); render();
+  }
+  function pause() {
+    st.remaining = remainingNow();
+    st.running = false;
+    saveSt(); render();
+  }
+  function reset() {
+    st.running = false;
+    st.remaining = totalMs(st.mode);
+    say('');
+    saveSt(); render();
+  }
+  function setMode(m) {
+    if (m === st.mode) return;
+    if (st.running && !confirm('Timer sedang berjalan. Ganti sesi dan atur ulang waktunya?')) return;
+    st.mode = m; st.running = false; st.remaining = totalMs(m);
+    say('');
+    saveSt(); render();
+  }
+  function skip() {
+    st.running = false;
+    st.mode = st.mode === 'focus' ? 'short' : 'focus';
+    st.remaining = totalMs(st.mode);
+    say('');
+    saveSt(); render();
+  }
+  function complete(silent) {
+    const wasFocus = st.mode === 'focus';
+    st.running = false;
+    let text;
+    if (wasFocus) {
+      logSession();
+      st.cycle++;
+      st.mode = st.cycle % set.every === 0 ? 'long' : 'short';
+      text = `Sesi fokus selesai. Waktunya ${st.mode === 'long' ? 'istirahat panjang' : 'istirahat pendek'} ${set[st.mode]} menit.`;
+    } else {
+      st.mode = 'focus';
+      text = 'Istirahat selesai. Yuk fokus lagi!';
+    }
+    st.remaining = totalMs(st.mode);
+    saveSt();
+    say(silent ? text + ' (selesai saat halaman tertutup)' : text);
+    if (!silent) {
+      if (set.sound) chime();
+      if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+      if (set.notify) notify(text);
+    }
+    renderStats();
+    render();
+    if (set.auto && !silent) start();
+  }
+
+  function tick() {
+    if (st.running && remainingNow() <= 0) { complete(false); return; }
+    if (st.running || !view.hidden) render();
+  }
+
+  el.toggle.addEventListener('click', () => (st.running ? pause() : start()));
+  $('#pm-reset').addEventListener('click', reset);
+  $('#pm-skip').addEventListener('click', skip);
+  $$('#pm-modes .chip').forEach(c => c.addEventListener('click', () => setMode(c.dataset.m)));
+  $('#pm-clearlog').addEventListener('click', () => {
+    if (!confirm('Hapus semua catatan sesi fokus?')) return;
+    log = {};
+    appStore.set('beresin.pomolog', log);
+    renderStats();
+  });
+
+  /* ---- Pengaturan ---- */
+  const inputs = { focus: $('#pm-s-focus'), short: $('#pm-s-short'), long: $('#pm-s-long'), every: $('#pm-s-every') };
+  const syncInputs = () => {
+    Object.keys(inputs).forEach(k => { inputs[k].value = set[k]; });
+    $('#pm-sound').checked = set.sound;
+    $('#pm-notify').checked = set.notify && 'Notification' in window && Notification.permission === 'granted';
+    $('#pm-auto').checked = set.auto;
+  };
+  Object.keys(inputs).forEach(k => inputs[k].addEventListener('change', () => {
+    const v = Math.round(+inputs[k].value);
+    set[k] = Number.isFinite(v) && v >= 1 ? Math.min(v, k === 'every' ? 12 : 180) : DEF[k];
+    inputs[k].value = set[k];
+    saveSet();
+    if (!st.running && k === st.mode) st.remaining = totalMs(st.mode);
+    saveSt(); render();
+  }));
+  $('#pm-sound').addEventListener('change', e => { set.sound = e.target.checked; saveSet(); });
+  $('#pm-auto').addEventListener('change', e => { set.auto = e.target.checked; saveSet(); });
+  $('#pm-notify').addEventListener('change', async e => {
+    const hint = $('#pm-nhint');
+    hint.textContent = '';
+    if (e.target.checked) {
+      if (!('Notification' in window)) { e.target.checked = false; hint.textContent = 'Browser ini belum mendukung notifikasi. Suara dan pesan di halaman tetap aktif.'; }
+      else {
+        if (Notification.permission === 'default') { try { await Notification.requestPermission(); } catch (err) { /* abaikan */ } }
+        if (Notification.permission !== 'granted') { e.target.checked = false; hint.textContent = 'Notifikasi belum diizinkan. Izinkan lewat pengaturan situs di browser, lalu coba lagi.'; }
+      }
+    }
+    set.notify = e.target.checked;
+    saveSet();
+  });
+  $('#pm-test').addEventListener('click', () => { unlockAudio(); chime(); });
+
+  /* ---- Mulai ---- */
+  syncInputs();
+  if (st.running && Date.now() >= st.endAt) complete(true);
+  renderStats();
+  render();
+  setInterval(tick, 250);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+})();
 </script>
 </body>
 </html>
