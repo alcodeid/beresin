@@ -310,6 +310,69 @@ body.noscroll{overflow:hidden}
 .bars b{font-size:12px}
 .setrow{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));margin-bottom:12px}
 
+.t12{background:#dde5f2}
+
+/* Tes ketik */
+.ty-top{display:flex;flex-wrap:wrap;gap:14px 24px;margin-bottom:14px}
+.ty-top .grp{display:grid;gap:6px}
+.ty-live{display:flex;gap:10px;margin-bottom:12px}
+.ty-live .stat{flex:1;padding:10px 14px}
+.ty-live .stat b{font-size:26px}
+.ty-box{position:relative;height:132px;overflow:hidden;padding:12px 14px;border:1.5px solid var(--line);border-radius:16px;background:#fff;font-size:20px;line-height:36px;cursor:text;word-spacing:2px}
+.ty-box:focus-within{border-color:var(--primary);outline:3px solid #bfe3da}
+.ty-box .w{display:inline-block;padding:0 4px;margin:0 1px;border-radius:6px;color:#4d6361}
+.ty-box .w.cur{background:#e3f2ed;color:var(--ink);box-shadow:inset 0 -2px 0 var(--primary)}
+.ty-box .w.cur.bad{background:#fbd9d3;box-shadow:inset 0 -2px 0 #d4452f}
+.ty-box .w.ok{color:#0a7a55}
+.ty-box .w.no{color:#c4412b;text-decoration:line-through}
+.ty-hint{position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.88);font-weight:700;color:var(--primary-d);font-size:16px;text-align:center;padding:10px;pointer-events:none}
+.ty-input{margin-top:12px}
+
+/* Refleks klik */
+.rf-pad{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;min-height:260px;border:0;border-radius:22px;color:#fff;font:inherit;cursor:pointer;text-align:center;padding:20px;user-select:none;-webkit-user-select:none;touch-action:manipulation;transition:background-color .18s,transform .1s}
+.rf-pad:active{transform:scale(.99)}
+.rf-pad .t{font-size:clamp(26px,7vw,36px);font-weight:800;letter-spacing:-.02em}
+.rf-pad .s{font-size:15px;opacity:.92}
+.rf-pad[data-state="idle"]{background:#2f6fd6}
+.rf-pad[data-state="wait"]{background:#c8473a}
+.rf-pad[data-state="go"]{background:#1fa463}
+.rf-pad[data-state="early"]{background:#d4912a}
+.rf-pad[data-state="result"]{background:#0c7a68}
+.rf-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.rf-list .badge{min-height:30px;font-size:13px}
+
+/* Wordle */
+.wd-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-bottom:12px}
+.wd-board{display:grid;gap:6px;width:min(320px,100%);margin:6px auto 12px}
+.wd-row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.wd-tile{aspect-ratio:1;display:grid;place-items:center;border:2px solid #cbd8d5;border-radius:10px;background:#fff;font-size:clamp(24px,8vw,32px);font-weight:800;text-transform:uppercase;color:var(--ink)}
+.wd-tile.filled{border-color:#7c908c}
+.wd-tile.correct{--tb:#1f9d6b;background:var(--tb);border-color:var(--tb);color:#fff}
+.wd-tile.present{--tb:#d9a21b;background:var(--tb);border-color:var(--tb);color:#fff}
+.wd-tile.absent{--tb:#78898a;background:var(--tb);border-color:var(--tb);color:#fff}
+.wd-tile.reveal{animation:flip .55s ease both;animation-delay:calc(var(--i) * .18s)}
+@keyframes flip{
+  0%{transform:rotateX(0);background:#fff;border-color:#7c908c;color:var(--ink)}
+  49%{transform:rotateX(90deg);background:#fff;border-color:#7c908c;color:var(--ink)}
+  50%{transform:rotateX(90deg);background:var(--tb);border-color:var(--tb);color:#fff}
+  100%{transform:rotateX(0);background:var(--tb);border-color:var(--tb);color:#fff}
+}
+.wd-row.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.wd-msg{min-height:26px;text-align:center;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:8px}
+.wd-kb{display:grid;gap:6px;width:min(500px,100%);margin:0 auto}
+.wd-krow{display:flex;gap:5px;justify-content:center}
+.wd-key{flex:1 1 0;min-width:0;height:52px;border:0;border-radius:9px;background:#dde7e4;color:var(--ink);font:inherit;font-weight:700;font-size:15px;text-transform:uppercase;cursor:pointer;padding:0;touch-action:manipulation;transition:background-color .15s,transform .08s}
+.wd-key:active{transform:scale(.94)}
+.wd-key.wide{flex:1.6 1 0;font-size:12px}
+.wd-key.correct{background:#1f9d6b;color:#fff}
+.wd-key.present{background:#d9a21b;color:#fff}
+.wd-key.absent{background:#78898a;color:#fff}
+.dist{display:grid;gap:5px;margin:12px 0}
+.dist .dr{display:grid;grid-template-columns:16px 1fr;align-items:center;gap:8px;font-size:13px;font-weight:700}
+.dist .db{min-width:26px;background:#9bb3ad;color:#fff;border-radius:5px;padding:1px 8px;text-align:right;font-size:12px}
+.dist .db.hit{background:var(--primary)}
+
 .foot{margin-top:26px;text-align:center;font-size:13px;color:var(--muted)}
 
 @media (min-width:600px){
@@ -1034,6 +1097,109 @@ body.noscroll{overflow:hidden}
       </details>
     </section>
 
+    <!-- ============ ARENA MINI ============ -->
+    <section class="view" data-view="arena" data-title="Arena Mini | Beresin" hidden>
+      <div class="head">
+        <h2>Arena Mini</h2>
+        <p>Tiga permainan singkat untuk melatih ketikan, refleks, dan kosakata.</p>
+      </div>
+
+      <div class="chips" id="ar-tabs" role="group" aria-label="Pilih permainan" style="margin-bottom:14px">
+        <button type="button" class="chip on" data-p="ty">Tes Ketik</button>
+        <button type="button" class="chip" data-p="rf">Refleks Klik</button>
+        <button type="button" class="chip" data-p="wd">Wordle</button>
+      </div>
+
+      <!-- Tes kecepatan mengetik -->
+      <div id="ar-ty">
+        <div class="card">
+          <div class="ty-top">
+            <div class="grp"><span class="lb" style="margin:0">Bahasa</span>
+              <div class="chips" id="ty-lang">
+                <button type="button" class="chip on" data-v="id">Indonesia</button>
+                <button type="button" class="chip" data-v="en">Inggris</button>
+              </div></div>
+            <div class="grp"><span class="lb" style="margin:0">Durasi</span>
+              <div class="chips" id="ty-dur">
+                <button type="button" class="chip" data-v="15">15 detik</button>
+                <button type="button" class="chip on" data-v="30">30 detik</button>
+                <button type="button" class="chip" data-v="60">60 detik</button>
+              </div></div>
+          </div>
+          <div class="ty-live" aria-live="off">
+            <div class="stat"><b id="ty-time">30</b><span>Detik tersisa</span></div>
+            <div class="stat"><b id="ty-wpm">0</b><span>Kata per menit</span></div>
+          </div>
+          <div class="ty-box" id="ty-box">
+            <div id="ty-words"></div>
+            <div class="ty-hint" id="ty-hint">Ketuk di sini lalu mulai mengetik</div>
+          </div>
+          <input class="ty-input" id="ty-input" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" aria-label="Ketik kata yang tampil, tekan spasi untuk kata berikutnya" placeholder="Ketik di sini, spasi untuk kata berikutnya">
+          <div class="actions"><button class="btn ghost stack" id="ty-again" type="button">Ulangi dengan kata baru</button></div>
+        </div>
+        <div class="result" id="ty-res" hidden>
+          <h3 id="ty-rtitle">Selesai</h3>
+          <div class="stats" style="margin-top:8px">
+            <div class="stat main"><b id="ty-rwpm">0</b><span>Kata per menit</span></div>
+            <div class="stat"><b id="ty-racc">0%</b><span>Akurasi</span></div>
+            <div class="stat"><b id="ty-rwords">0</b><span>Kata benar</span></div>
+          </div>
+          <p id="ty-rnote" style="margin:12px 0 0"></p>
+        </div>
+      </div>
+
+      <!-- Refleks klik -->
+      <div id="ar-rf" hidden>
+        <div class="card">
+          <button class="rf-pad" id="rf-pad" type="button" data-state="idle" aria-live="polite">
+            <span class="t" id="rf-t">Tes refleks</span>
+            <span class="s" id="rf-s">Ketuk untuk mulai. Ketuk lagi secepatnya saat layar berubah hijau.</span>
+          </button>
+          <div class="stats" style="margin-top:14px">
+            <div class="stat"><b id="rf-last">-</b><span>Terakhir (ms)</span></div>
+            <div class="stat main"><b id="rf-avg">-</b><span>Rata-rata 5 terakhir (ms)</span></div>
+            <div class="stat"><b id="rf-best">-</b><span>Terbaik (ms)</span></div>
+          </div>
+          <div class="rf-list" id="rf-list"></div>
+          <div class="actions"><button class="btn ghost stack" id="rf-reset" type="button">Ulangi dari awal</button></div>
+        </div>
+      </div>
+
+      <!-- Wordle -->
+      <div id="ar-wd" hidden>
+        <div class="card">
+          <div class="wd-top">
+            <div class="chips" id="wd-lang" role="group" aria-label="Bahasa Wordle">
+              <button type="button" class="chip on" data-v="id">Indonesia</button>
+              <button type="button" class="chip" data-v="en">Inggris</button>
+            </div>
+            <button class="btn ghost" id="wd-new" type="button" style="min-height:42px;padding:0 16px;font-size:15px">Permainan baru</button>
+          </div>
+          <div class="wd-msg" id="wd-msg" role="status" aria-live="polite"></div>
+          <div class="wd-board" id="wd-board" aria-label="Papan tebakan"></div>
+          <div class="wd-kb" id="wd-kb"></div>
+          <div class="field" style="margin-top:14px">
+            <label class="check"><input type="checkbox" id="wd-check"> Cek kamus sebelum tebakan diterima</label>
+            <p class="hint" id="wd-chint" style="margin-top:2px"></p>
+          </div>
+        </div>
+        <div class="result" id="wd-end" hidden>
+          <h3 id="wd-etitle">Selesai</h3>
+          <p id="wd-etext" style="margin:0"></p>
+          <div class="stats" style="margin-top:12px">
+            <div class="stat"><b id="wd-sp">0</b><span>Dimainkan</span></div>
+            <div class="stat"><b id="wd-sw">0%</b><span>Menang</span></div>
+            <div class="stat"><b id="wd-ss">0</b><span>Beruntun (terbaik <span id="wd-sm">0</span>)</span></div>
+          </div>
+          <div class="dist" id="wd-dist" aria-label="Sebaran jumlah tebakan"></div>
+          <div class="actions">
+            <button class="btn primary stack" id="wd-share" type="button">Salin hasil</button>
+            <button class="btn ghost stack" id="wd-again" type="button">Main lagi</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <p class="foot">Beresin dibuat untuk membantumu</p>
@@ -1181,7 +1347,8 @@ const ICONS = {
   kata: '<path d="M4 6h16M4 12h10M4 18h14"/>',
   ipk: '<path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/>',
   catatan: '<path d="M5 20l1-4L17 5l3 3L9 19z"/><path d="M14.5 7.5l3 3"/>',
-  pomodoro: '<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9.5 3h5"/>'
+  pomodoro: '<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9.5 3h5"/>',
+  arena: '<rect x="3" y="7.5" width="18" height="10" rx="5"/><path d="M8 10.5v4M6 12.5h4M15.5 11.5h.01M17.5 13.5h.01"/>'
 };
 const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 17l-5.2 2.7 1-5.9L3.5 9.7l5.9-.8z"/></svg>';
 
@@ -1204,6 +1371,8 @@ const TOOLS = [
     kw: 'catatan note ide daftar belanja tulis memo salin simpan otomatis jurnal todo kegiatan' },
   { id: 'pomodoro', tint: 't11', title: 'Timer Pomodoro', desc: 'Fokus belajar dengan sesi dan istirahat teratur',
     kw: 'pomodoro timer fokus belajar kerja istirahat break sesi konsentrasi hitung mundur produktif' },
+  { id: 'arena', tint: 't12', title: 'Arena Mini', desc: 'Tes ketik, refleks klik, dan Wordle',
+    kw: 'arena mini game permainan main hiburan mengetik ketik kecepatan typing wpm refleks reaksi klik wordle tebak kata kuis seru' },
   { id: 'kata', tint: 't4', title: 'Hitung Kata', desc: 'Cek jumlah kata dan karakter tugasmu',
     kw: 'kata karakter kalimat paragraf tulisan esai makalah skripsi hitung jumlah teks' },
   { id: 'ipk', tint: 't5', title: 'Hitung IPK', desc: 'Hitung IPS semester dan IPK kumulatif',
@@ -3260,6 +3429,423 @@ const QR = (() => {
   render();
   setInterval(tick, 250);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+})();
+
+/* ========== 12. Arena Mini ========== */
+const ARENA_WORDS = {"en":{"a":"about above abuse actor adapt admit adopt adult after again agent agree ahead alarm album alert alike alive allow alone along alter among anger angle angry apart apple apply arena argue arise armor array arrow aside asset audio avoid award aware awful bacon badge baker basic basin basis batch beach beard beast begin being below bench berry birth black blade blame blank blast blaze bleed blend bless blind block blood bloom blown board boast bonus boost booth bound brain brake brand brave bread break breed brick bride brief bring broad broke brown brush build built bunch burst buyer cabin cable candy carry catch cause chain chair chalk charm chart chase cheap check cheek cheer chess chest chief child chill china choir chose chunk civil claim class clean clear clerk click cliff climb clock close cloth cloud coach coast color comic coral couch cough could count court cover crack craft crane crash crazy cream crime crisp cross crowd crown crush curve cycle daily dairy dance dealt death debut delay depth doubt dozen draft drain drama drank drawn dream dress dried drift drill drink drive drown dwarf eager eagle early earth eight elbow elder elect elite empty enemy enjoy enter entry equal error essay event every exact exist extra faint fairy faith false fancy fault favor feast fence fever fiber field fifth fifty fight final first flame flash fleet flesh float flood floor flour fluid focus force forge forth forty forum found frame frank fraud fresh front frost fruit fully funny ghost giant given glass globe glory glove going grace grade grain grand grant grape graph grass grave great green greet grief grill grind gross group grown guard guess guest guide guilt habit happy harsh haste haven heart heavy hedge hello hence honey honor horse hotel house human humor hurry ideal image imply index inner input irony issue ivory jewel joint judge juice knife knock known label labor large laser later laugh layer learn lease least leave legal lemon level light limit linen liver local logic loose lover lower loyal lucky lunch magic major maker march match maybe mayor meant medal media mercy merge merit metal meter might minor minus mixed model money month moral motor mount mouse mouth movie music naive nerve never newly night noble noise north novel nurse ocean offer often olive onion opera orbit order other ought outer owner paint panel panic paper party pasta patch pause peace pearl phase phone photo piano piece pilot pitch pizza place plain plane plant plate point polar pound power press price pride prime print prior prize proof proud prove pulse punch pupil queen query quest quick quiet quite quote radio raise range rapid ratio reach react ready realm rebel refer relax reply rider ridge right rigid rival river roast robot rocky rough round route royal rural salad sauce scale scare scene scope score sense serve seven shade shake shall shame shape share sharp sheep sheet shelf shell shift shine shirt shock shoot shore short shout sight silly since sixth sixty skill skirt sleep slice slide slope small smart smell smile smoke snake solar solid solve sorry sound south space spare speak speed spell spend spice spite split spoke sport staff stage stain stair stake stamp stand stare start state steal steam steel steep stick still stock stone stood store storm story stove strip study stuff style sugar suite sunny super sweet swift swing sword table taste teach tease teeth thank theme there thick thief thing think third those three threw throw thumb tiger tight timer tired title toast today tooth topic total touch tough towel tower trace track trade trail train trash treat trend trial tribe trick tried troop truck truly trunk trust truth twice uncle under union unite unity until upper upset urban usage usual valid value video virus visit vital vivid vocal voice waste watch water weary weigh weird whale wheat wheel where which while white whole whose widow width woman world worry worse worst worth would wound write wrong yield young youth zebra","v":"aaron aarti aback abajo abana abate abaya abbas abbey abbot abbyy abcde abdul abhor abide abies abled ables abner abnor abode aboot abort about above abril abrir abuse abuso abuts abuzz abyss acaba accel accep acces accom accor accra aceon acess acest acevo achat ached aches acide acids acing acini acolo acorn acoso acral acres acrid acted acter actif actin activ actly actor actos actus acura acuta acute adage adams adapt added adden adder addin addon adeeb adele adeno adept adhoc adieu adios adits adler admin admis admit adnan adobe adolf adopt adore adorn adoro adres adult advan adver advil aeajr aegis aeons aetna afaik affix afisk afoot afore afoul after again agama agape agate agave agent agers aggre aggro agian agile aging aglaw aglow agnor agony agora agree aguas ahaha ahead ahmed ahold ahora aidan aided aiden aides aight aiken aimed aimee ainda ainsi aioli aired aires aisha aisle aiuto ajith ajuda akbar aking akira akong alain alamo alana alarm alata alate alban album albus alder aldol alent alert aleve alexa alexi algae algal algun alias alibi alice alien align alike alist ality alive alkyd alkyl allah allan allay allel allem allen aller alles alley allie allio alloc allot allow alloy allyl aloes aloft aloha alone along aloof alors aloud alpen alpha alsin altar altel alten alter altho alton altos altri altro alumi alums alvin alway alwys amano amare amass amaze amber ambit ambos amcor amend amici amide amido amiga amigo amily amine amino amish amiss amity among amore amour amped amphi ample ampli amply amram amuse anaes analy anand anata anced ances anche andar ander andes andor andra andre andro angel angen anger anges angie angio angle angry angus anima anime anion anise anism anita ankle anlar annem annex annie anniv annoy annua annul annum annus anode anole anova antag antec antes antic anton antsy anual anvil anwar anyon aorta apace apart aphex aphid apnea apoio apoyo appar apple appli apply appre appro apres april apron aprox aptly arabe arabs arama arash arate arava arbor arbre archi arden ardor areal areas areca arena arene arent argon argos argue arial arian arias ariel aries arise arith arity armas armed armel armen armor aroha aroma arora arose aroun array arrow arsed arses arson artes artic artim artis artsy aruba aruda asada asain asamp asaya ascii ascot ashen ashes ashok asian asics aside asked asker askew askin aspen assaf assay assed assem asses asset assez assim assis assoc assum assur aster asthe aston astra astro aswel asymm asymp async atari atcha ately aterm atest atime ating ation ative atlas atmos atoll atoms atone atopy ators atria atric atten atthe attic attra attri ature aucun audio audit auger aught augue augur auido aunts aunty aural auras aurea aussi autem autho auton autor autos autre auxin avail avait avant avast avers avert avery avian avila avira avium avoid avoir avons avout avril await awake award aware awash aways awful awoke axial axils axing axiom axles axons ayant ayers aysiu ayuda ayumi azide azine azole azote azoxy aztec azure babar babel babes babii babys babyy bacco backs bacon badge badly bafta bagel baggy bahar bahay bahia baiji baila baile bails baits bajaj bajar baked baker bakes bakin bakit balan balay balck baled baler bales balks balla balls balms balmy balou balsa balun bambi banal banat banca bance banda bande bandh bands bangs banjo banka banks bantu barat barbs barby barca bards bared bares barge barks barns baron barra barre barry basal basco based basen bases basic basil basin basis basse basso basta baste batch bated bates bathe batho baths batik baton batts batty bauer bawdy bayer bayou bazar bball beach beads beady beaks beams beans beara beard bears beast beats beaut beaux bebop becca becky becom becuz beech beefs beefy beens beeps beers beets befor began begat beget begga begin begun behav beige being belay belch beled belek belie bella belle belli bello bells bellu belly below belts bench bende bends bendy benef benim benji benno benny bento benzo beret berks berms berry berth beryl beset besos beste bests betas betel beter betes betsy betta bette betty bevel bezel bhatt bhava bible bicep biden bidet bifid bight bigot bijou biked biker bikes bikie bikin bilan bilby bilge bilgi bills billy bimbo binds bindu bined binge bingo bingy binky biome biota biped birch birds birdy birth bison bitch biter bites bitin bitsy bitte bitty bizar bizzy bjork black blade blair blake blame blanc bland blank blast blaze bleak blebs bleed bleep blend blero bless blest blige bliin blimp blind bling blink blips bliss blitz blizz bloat blobs block blocs bloga blogg blogs blogz bloke blond blood bloom blots blown blows blued blues bluff blunt blurb blurs blurt bluse blush board boars boast boats bobbi bobby bocca bocce bodes bodys boeuf bogey boggy bogie bogus boils boinc boing boise bokeh bolas boleh bolic bolle bolls bolts bolum bolus bombo bombs bomen bondi bonds boned boner bones bongo bongs bonis bonne bonny bonus boobs booby booed books booms boomy boone boosh boost booth boots booty booze boozy borat borax bored borer bores boric borin boris borne boron bosch bosib bosom boson bossa bossy botox bough boule bound bouts boven bovis bowed bowel bowen bower bowie bowls boxed boxer boxes bozok bozos brace brads brady brags braid brain brake brand brane brani brant brary brash brass brats bratz braun brava brave bravo brawl brawn braze bread break bream breed breif breil brent brett breve brews brian bribe brick bride brief brill brine bring brink briny brisk brite brits broad brody broek broil broke broly brome bromo bronx brood brook broom broth brown brows bruce bruit bruja brung bruni bruno brunt brush brute bryan bryce bryos btext bubba buble bucks bucky buddy budge buena bueno buffs buffy bugga buggy bugil bugis bugle buhay buick build built bukit bulbs bulge bulky bulla bulls bully bulma bumps bumpy bunch bunds bundy bunks bunny bunts buona buono buoys burbs burch burda burgh burke burly burma burns burnt burps burro burrs bursa burst busca busch bused buses bushi bushy busin busta busts busty butch buted butik butte butts butyl buxom buyer buyin buzzy bylaw bynes byork byrne byron bytes bythe byway cabal cabin cable cabot cacao cache cacti caddy cadet cadre cafes caffe caged cages caida caine cairn cairo cajun caked cakes calcd calcu calif calla calle calli calls cally calms calor calyx camel cameo camer campo camps campy camry canal canbe cance candi candy canes canis canna canny canoe canon canst canta canto capac caper capes capex capil capri caput carat carbo carbs carci carck cardi cards cared caren carer cares caret carey carga cargo carla carlo carly carne carob carol carom carpe carpi carps carro carry carta carte carts carve casas cased casei cases casey casio casks casos caste casts catch cated cater cates cathe cathy catia catty caulk causa cause caval caved caver caves cavum cdkey cdots cdrom cease cecal cecil cecum cedar ceded cedex ceeds ceili ceils ceive celal celeb celia cella celle cello cells cellu celta celts celui cence cenit centr cents cepts cerca ceria ceric cerns cerry certo certs cesar cesta cette cetyl cewek chads chaff chain chair chalk champ chang chant chaos chaps chara chard charg charm chars chart chase chasm chats chavo chavs cheap cheat cheba check cheek cheep cheer chefs chemi chemo cheng cheno chert chery chess chest chevy chews chewy chiar chibi chica chick chico chide chido chief chien chika chiki child chile chili chill chime chimp china chine ching chink chino chins chips chiro chirp chive chloe chlor chmod choad choca chock choco choir choix choke cholo chomp chong chook choos choot chops chord chore chose chown chris chrom chron chuck chugs chump chums chung chunk churn chute chyba chyna cians ciara ciate ciclo cided cider cides cielo cient ciety cific cigar cilia cinch cinco cindy cinta cious cipal ciple cipro circa circu cirri cisco cists citar cited citer cites citys civic civil clack clade claim clair clamp clams clang clans claps clara clare clark claro clase clash clasp class claus clave claws clays clazz clean clear cleat cleft clerk cleus click cliff climb cline cling clini clink clint clipe clips clita clits clive cloak clock clogs clone close cloth clots cloud clout clove clown clube clubs clude clued clues clump clung clyde coach coals coast coats cobra cocci coche cocks cocky cocoa codec coded coder codes codex codon coeds coeff coeur coffe coger cogil cohen coher cohol coils coins coisa coker cokes colar colby colds colic colin colle colli colon color colts combi combo combs comer comes comet comfy comic comin comix comma comme comms commu compa compe compl compo comps compu conan conch concn conde condi condo cones confi conga congo conic conju conor conse consi const conta contd conte conti conto contr conus conve convo coogi cooks cooky cools cooly coord coors copay coped copes copia copie copii copra copys coral corde cords cored coreg corel corer cores corey corfu corgi corks corms corns cornu corny corpo corps corre corsa corse corso corte corti corto cosas coset cosmo costa costo costs cotta couch cough could count coupe coups cours court couse coved coven cover coves covet covey cowed cower cowie cowry coxph crabs crack craft crags craic craig crake craks cramp crams crane crank craps crash crass crate crave crawl craze crazy creak cream crear creas creat creck creda credo creed creek creel creep creer crema creme crepe crept cress crest crete crews cribs cried cries crime crimp crise crisp criss crite criti crits croak crock crocs croft croix crook crops crore cross croup crowd crown crows crude cruel crumb crunk crush crust cruzi cryin crypt ction ctype cuban cubby cubed cubes cubic cubis cudnt cuffs cuits cular cules culls culms culos culpa cults culty cumin cunts cuore cupid cuppa curbs curds cured cures curio curls curly curry curse curso curva curve curvy cused cushy cusps custo cuted cutee cuter cutie cutis cuzin cyano cyber cycle cyclo cylin cymes cynic cypux cyrus cysts cytes czars czech dabei daddy daffy dagen dager dahil dahon daily daira dairy daisy daiwa dakar dalam dalek dalla dalle dally dames damit damon danas dance dando dandy dango danke danni danny danse dansk dante danza dapat darby darcy dards dared dares daria darko darks darth darts dasha datas dated dates datos datum davai daveb david davis davon dawns dawnt dayne dazed dbase deals dealt deans dears death debby debit debra debts debug debut decaf decal decay decid decir decks decom decor decoy decry decyl deeds deems deena deere deers defen defer deffo defor degen degli degra degre deine deity dejan dejar delat delay delet delhi delim deliv della delle dello delta delux delve demas demic demir demon demos demux dence dency dened denen denim denis denna denne denny denon densa dense densi dente dents deoxy depen depos depot depth depts derbi derby dered derek deren deriv derma descr desde desea deseo desig desir desis desks desma despa dessa desta deste detec deter detox dette deuce devas devel devez devia devil devin devon dewey dials diame diana diane diary diate diced dicen dices dicey dicho dicks dicot dicta dicts diddy didlo didnt diego diene dient diese diets diffe diffi diffs diffu digas diggs digit diigo dijon dikes dildo dilly dimen dimer dimes dimly dimmu dimou dinar dined diner dines dingo dings dingy dinky diode diols dione diosa direc dirty disap disci disco discs disks disor displ disse disso distr ditch ditto ditty ditzy divas dived diver dives divin dixie dixon dizer dizzy djing dking dling dlink dlnum dmesg dnote dobar dobbs dobby dobre dobro dobry docks dodge dodgy doers doesn doggy dogma doing dolar dolby dolce doled doles dolla dolls dolly dolor domed domes domly domme donde donee dongs donna donne donno donor donot donut dooce dooms doops doors doped dopey doris dorks dorky dorms dorsi dosed doses dosha dosnt dosti doubt dough doula douse dover doves dowdy dowel dower downs downy dowry doyle dozen dozer dpsed drach draco draft drags drain drake drama drank drape drawl drawn draws dread dream dreds dregs dress drial dried drier dries drift drill drink drips drive droga droge droid droit drole droll drome drone droog drool droop drops dross drove drown drugs druid drums drunk drupe dryer dryly dspam dtodd duals duane dubai dubia ducal duced ducer duces duchy ducks ducky ducts dudes duels duets duffy dukes dulce dummy dumps dunce dunes dunia dunks dunno duped duper dupes dural duran durch dures durex durin durum duryi dusky dusts dusty dutch dutta dutty duvet dvips dvoid dwarf dwell dwelt dyads dying dykes dylan dynam dynes dynos dyson dzone eager eagle eames earch eared earls early earns earth eased easel eases easly eaten eater eatin eaves ebony ebook ecard ecole econo ected eddie edema edgar edged edger edges edict edith edits edocs educa edule edwin eects eekly eerie eesti eevee effec effet effin efile efits efoto efron efter egies egret egypt eigen eight eimai einai einem einen einer eines eisai eject elbow elcid elder elect elegy elena eleva elfen elias eligi elimi elisa elise elite elitr eliza ellen eller elles ellie ellis ellos elmer elope elroy elses elsif elspa elton elude elute elvan elven elves elvis emacs email emake embed ember embod embry emcee emery emily emits emmys emote empha empty emule enact enced ences encod encom ended endef ender endif endow enema enemy enero enews enfin engin ening enjoy ennai ennui enone enous enrol ensue ental ented enter ently entra entre entry enuff envio envoy eorex eosin epics epoca epoch epost epoxy eprom epsom epson equal equim equip equiv erage erase erate erect erent erful ergot erica erick erika ering ermal ernie erode erred errno error erste erupt ervey erway erwin esata esate esgic eshte esque essai essay essed essen esses essex estab estan estar estas estat ested ester estes estos estou estoy etait etalk etapa etary eters etext ethan ether ethic ethno ethos ethyl etiam etmek etree etter etude etwas euler euros evade evalu evans evant evapo evden evens event every evict evils evisu evita evoke evolu ewido exact exalt exami exams excel excep exces exclu execs execu exept exert exhib exile exist exits exons expan expat expec expel expen exper expla explo expos exten exter extol extra exude eying ezine ezrin fabio fable fabri faced faces facet facia facie facil facta facto facts facut faded fader fades faery fails faint faire fairl fairs fairy faite faith faked faker fakes fakin falar falas falco falda falls false falta famed fanaa fancy fangs fanny fants farce fared fares fargo farms farsa farsi farts fasta fasts fatal fated fateh fates fatto fatty fatwa fault fauna faust faved faves favor favre faxed faxes fazed fazer fdisk fears feast feats fecal feces fecha fects fedex feeds feels feign feild feiss feist feito felch felis felix feliz fella fells felon felts femal femme femur fence fendi fends fener feral fered feria ferme fermi ferns ferro ferry fesse festa fests fetal fetch feted fetes fetid fetta fetus feuds fever fewer ffeil ffxii fgets fiber fibre fibro fiche ficou fideo fides fiefs field fiend fiero fiers fiery fifth fifty fight filam filed filer files filet filha fille fills filly filma filme filmi films filmu filmy filth final finan finch finda finde finds fined finer fines finns fiona fired fires firey firma firme firms first firth fishy fists fitch fiver fives fixed fixer fixes fixie fixup fizzy fjord flaca flack flags flail flair flake flaky flame flank flaps flare flash flask flats flava flaws fleas fleck flees fleet flere flesh fleur flexi flick flict flied flier flies fling flint flips flirt float flock flocs floes flood floor flops flora floss flour flout flown flows flowy floyd flues fluff fluid flujo fluke flume flung flunk fluor fluro flush flute flyby flyer flyin fname foals foams foamy focal focus foggy foils folds foley folic folie folio folkd folks folky folly fonda fondo fonds fondu fonts foods fools foots footw footy foram foray forbs force fords forex forge forgo forks forma forme forms formu foros forse forte forth forts forty forum forza fossa fotki fotos fotze fouls found fount fourm fours fovea fowls foxes foyer frags fragt frail frais frame franc frank franz fraps frase fraud fread freak freed freer frees frend freon fresh frets friar frida fried frien fries frill fring frist fritz frizz frock frogs froin froma frome fromm frond front frost froth frown froze fruit fryer fstab fucka fucks fudge fuego fuels fuera fuged fugit fugly fugue fukin fully fumed fumes funda funds fungi funky funni funny fuori furan furor furry fusca fused fuser fuses fussy futon futur fuzzy fying gaara gable gabon gadis gaffe gaged gages gaily gains gaint gaits galas gales gallo galls gallu gamba gamed gamer games gamez gamit gamle gamma gammy gamut ganar ganas ganda gangs ganic ganja ganna ganze garam garda garde gargs garni garry garth gases gasps gatas gated gates gator gatos gaudy gauge gaunt gaurd gauss gauze gavel gavin gaxha gayle gazed gazes gchar gears geass geben gecko gedit geeks geeky geese gegen gehen gehts geiko geile geist gemma genau gence gency gener genes genet genic genie genio genni genoa genom genre genta gente gents genus geoff geome geoph gerbe gered germs gerne gerry geste gests getty getup geval gexec ggasi ghana ghost ghoul giana giant gible gical giddy gifts gigas gilda giles gilli gills gilts gimme ginal ginko ginny gioco gions gious girls girly girlz girth gists gitar given giver gives givin gizmo glace glade gland glans glare glass glaub glaze gleam glean glenn glial glibc glide glint glist glitz gloat globe globo glock gloom glory gloss glove glows gluco glued glues glume gluon gluse gluta glyco glydr glyph gmail gmake gnarl gnats gneve gnome goals goats godin godly goede goers gohan goign going golds golem goles golly gomez gonad gongs gonna gonzo goods goody gooey goofs goofy goons goose gorau gorda gordi gordo gored gorge gorse gosta gosto goths gotta gouge gould gourd gouty gover gowns grabs grace grade gradi grado grads gradu graff graft grail grain grams grand grant granu grape graph grasa grasp grass grata grate grave gravy graye grays graze great greed greek green grees greet gregh grein gress greta greys grids grief grill grils grime grimy grind grins gripe grips grist grits groan groin groom gross grote group grout grove growl grown grows grubs gruel gruff grunt grupo guage guano guard guava gucci guess guest guide guido guild guile guilt guint guise gulag gular gulch gules gulls gully gulps gumbo gummi gummy gunna guppy gupta gurls gurus gusta guste gusto gusts gusty gutsy gutta guzel gweld gydag gyfer gyorg gypsy gyros gyrus haart haath habbo haben haber habia habit habla hablo hacen hacer haces hacia hacks hacky hades hadnt haemo haere hafta hagas hahaa hahah hahha haifa haiku hails hairs hairy haiti halal halen haley halla halle hallo halls halon halos halts halve hamid hance hands handy hanes hangs hanks hanna hanno hanya haope happy harap hardy harem hares harks harmo harms harps harry harsh hasan hasnt hasta haste hasty hatch hated hater hates hatha hatin hatte hauls haunt haute havea haved haven haves havik havin havnt havoc hawks hayek hayes hazed hazel hbase hdres heads heady heals healt heaps heard hears heart heath heats heave heavy hecho hedge heeds heeft heels hefty hegre heheh heidi heigl heirs heise heist helen helio helix hella hello hells helms helps hemes hemor hemos hence henge henna henry hepsi herbi herbs herby herds heres heron heros hertz herve heuer heute hexyl hibit hicks hides hielo highs hight hijab hiked hiker hikes hilar hills hilly hilum hilux himfr hindi hinds hindu hiner hinge hints hipaa hippo hippy hiram hired hirer hires hissy histo hitch hited hives hjelp hmong hoard hoary hobby hocks hoffe hogan hogar hoger hoist hokey holds holed holes holga holla holly holon holst homed homeo homer homes homey homie homme honda honed hones honey honky honor hoods hoody hooey hoofs hooks hooky hoops hoped hopes hopin hoppy horas horde horns horny horse horus hosed hosel hoses hospi hosts hotel hotly hough hound hours house hovel hover howdy howls howto hoyle huang hubba hubby hudba huevo huffy hulle hulls human humax humdi humic humid humor humps humus hunch hunks hunky hunni hunny hunts hurls hurry hurts husks husky hutch hvala hydra hydro hyena hylan hymen hymna hymns hynny hyped hyper ibang ibibo ibiza ibook ibrar icant icici icine icing icity icles icone icons iconv ictal ictus icyou idaho ideal ideas ident idgaf idiom idiot idler idles idole idols idyll ifdef ified ifort ifthe igang igloo igual igure ihrem ihren ihrer iinet ikkyo iknow ileal ileum ileus iliac ilies illic illum illus ilove image imams imate imbue imeem iment imesh imide imine imino immed immer imped impel imple impli imply impor impos imran imtoo inact inane inant inary inate inbox inclu incom incon incor incre incur inden index india indie indir induc indus inept inert inetd infec infer infil infin infix influ infor infos infra infty ingen ingle ingly ingot inher inhib ining inion injec inked inlaw inlay inlet inner innit inocu inode inoue input inser inset insta insti insur intel inten inter inthe intra intro inure inurl inven inves ioctl ional ionic ioral ipods ipsam ipsum irate irene irish irked irons irony isaac isang iscsi ished ising islam isles islet isnot isola isons issih issue ister isthe istic istry italy itary itchy itech items itera ities iting ition itive iusto ively ivory izing izmir jabba jabra jacks jacob jaded jaggy jails jaime jajaj jalan jamal jambs james jamie jamin jammy janes janet janie janis japan japon jared jason jatar jaune jaunt jawed jayne jazyk jazzy jboss jcpov jdong jeans jects jedan jeden jeder jeeps jeezy jello jelly jenna jenni jenny jercg jerks jerky jerry jesse jessy jesus jeter jetta jetty jetzt jeune jewel jezik jfile jibes jiffy jihad jimbo jimmy jingu jitsu jjbit joann jocks jodie joerc joerg jogos johnc johns johny joing joins joint joist joked joker jokes jokey jokin jolie jolla jolly jolts jonah jonas jones jonni jonny jorbo jorge josef josey joshi josie jotta jouer joule jours joven joyce jpegs jrock jsyos judas judge judul juego jugar juggs juice juicy jules julia julie julio jumbo jumps jumpy junds junio junit junki junky junta junto juris juror jurul juste justi justo jutro jutsu jwise kaart kabel kabhi kabul kadai kadar kahit kahve kairo kaise kajol kalau kalba kamal kamen kanal kandi kanes kanji kanya kanye kapha kappa kaput karan karat karen karim karin karla karly karma karst karte karti karts kasha kateb kates kathy katie katja katoi katte kauri kayak kayla kazaa keane kebab keels keene keeps kegel keine keira keith kelly kendo kenga kenge kengz kenny kenrg kenya kenzo kerbs kerio keris kerja kerma kerri kerry ketal ketch kevin kexts keyed khair khaki khang khmer khong kiana kicks kiddo kiddy kiero killa kills kilns kilos kilts kimbo kinda kinds kindy kines kings kinks kinky kiosk kiran kirby kisah kisim kissd kites kitts kitty kiwis klaus klein klibi klipe kloan klong klutz kmail knack knead kneel knees knell knelt knife knits knobs knock knoll knots knowl known knows koala kodak kolku komad komen komik komma komme kommt konpa konto kooks kooky koopa koran korea kotha kotor kplan krack kraft kraut krazy krill krish krona krone krypt kucha kudha kudos kudzu kullu kumar kunci kurta kurtz kweli kwoff kylie kyoto label labia lable labor laced laces lacey lacie lacks lacus ladda laden ladle ladon ladys lagen lager laggy lagna lahat laine laird laity lakes lakhs laksa lalla lamar lamas lamba lambs lamer lames lamin lamps lanai lance lands lanes lange lanka lanky lanza lapel lapis lapiz lappa lappy lapse larch laren larga large largo larly larry larva lasek laser lasik lasix lassi lasso laste lasts latch lated later lates latex lathe latin lator latte laude lauds laugh laulu laura laure lavas lawns layed layer layin layla layne layup lazer ldots leach leads leafs leafy leaks leaky leans leant leaps leapt learn leary lease leash least leave leben lebih leche ledge leech leeds leeks leery lefts lefty legac legal legen legge leggy legis legit legos leigh leila leisy leita leith lejos lekki lemma lemme lemon lence lends lenge lenin lenis lenny lenox lense lente lento leona leone leony leper leroy lesan lesbo lesen letra leuko leurs levee level leven lever levis lewis lexan lexis lexus lezen liana liane liars libby libel liber libra libre libri libro licen licks lidar lider liebe liege liegt liens lieth lieve lifer lifes lifts light ligne liked liken likes likey likin likly lilac lille lilly limba limbo limbs limes limit limon limos limps linac linda lindo linea lined linen liner lines linet linge lingo lings linha linia links linus linux lions lipid lirik liryc lisse lista liste listo lists litem liter lites lithe litho litle litre litte littl lived liven liver lives livia livid livin livre lized lizzy ljubi llama llamo llega lleva lloyd lmaoo lmfao lmnop loach loads loamy loans loath lobar lobby lobed lobes lobia local locas lochs locke locks locos locum locus lodge loess lofts lofty logan logge logic login logis logit logon logos logue lohan loinc loins lojra lokam lolli lolly lolol loner longa longi longo longs looks looky looms loons loony loops loopy loose loots lopez lopli lorax lords lorem lores lorie lorry loser loses losin losis lossy lotic lotro lotsa lotta lotto lotus louie louis loupe louse lousy loved lovee lover loves lovey lovin lowed lower lowes lowly loyal lsusb lubed lubes lucas lucha lucia lucid lucie lucky luego lugar luigi luisa lukas lular lulls lumen lumii lumix lumps lumpy lunar lunch lunes lunge lungs lupin lupus lurch lured lures lurid lurks lurve lusts lusty lutea luted luton lutte luvin luxor lyase lycra lydia lying lymph lynch lynne lyoko lyons lyric lysed lysis lytic lywio lyzed maakt mabey mabye macau macaw maces mache machi macho macht macnn macro macys madam maddy madly madre maemo mafia mafic mages magia magic magix magma magna magne magni magus mahal maida maids maiko mails maine mains maint maior maith maize major maken maker makes makin malaj malar malas malay males malic malig malik malin malls mallu mally malta malts malty mamas mambo mamma mamta manag mance manda mandi mando mands mandy manga mange mango mania manic manip manly manna manne manny manoj manok manor manos manta manuf manus maori mapas maple mappa marae marca march marci marco marcy mardi marek mares marge maria marie marin mario marke marks markt marly maroc marry marsh marta marth marti marty marys marzo maser maski masks mason massa masse masta masts match mated mateo mater mates matey mathe maths matic matin maton matsp matte matty matzo maura mauve maven maxed maxes maxim maxis maxon mayan maybe mayen mayer mayne mayor mazar mazda mazes mccoy mcrae mdash meade meals means meant meats meaty mecca mecha mechs medal media medic medio meebo meena meeps meets megan meget meine mejor melas melds melee mello melon melts memes memos menor menos mente mento ments menue menus meray merce merch merci merck mercy meres merge meric merit merle meron merry meses mesic mesma mesmo meson mesos messi messy metab metal metas meted meter metho metic metre metro metry metus mexyl meyer mezzo mgood miami miata micah micas micro midds midge midis midst miedo miele mieux might migra mikes mikey milan miler miles miley milfs milks milky milla mille milli mills milly mimeo mimes mimic minal mince minds mindy mindz mined miner mines mings minha minim minis minke minor mints minty minum minus minut mired mires mirth mirza misao mised mises misma mismo missy mista mists misty mitch miter mites mitra mitre mitts mixed mixer mixes mixin mixta mixup mized mjpeg mkdir mmole mnogo mnogu moana moans mobic mobil mobos mocap mocha mocks modal model modem moder modes modmy modus mogul moins moira moire moist moive moked molar molds moldy molec moles molly molto momar momen momma mommy monde mondo monet money monic monje monks monly monte month monty moods moody mooie moons moony moore moors moose moots mopar moped moral moran moras moray mores moron morph morro morse morta morte moses mosey mosis mossy motel moter motes mothe moths motif motor motos motte motto mould moult mound mount mourn mouse mousy mouth moval moved mover moves movie movil movin mowed mower moxie moyen mpage mpegs msgid mtorr mucha mucho mucin mucky mucus muddy muffs mugen muggy muita muito mujer mujhe mujra mulch mules mulls multe multi mumbo mummy mumps munca munch mundi mundo munis munky munud munya muons murah mural murat murda murky muscu mused muses mushy music musik musky musta musth musts musty mutch muted mutes mutex mutha mutta mutts muuch muvee muzik mycin myers mylar myles mylyn myrrh myths myweb nacho nacht nacre nadia nadie nadir nagar nahin nails naira naire naive naked nally nalts naman named names namic namie namin nampa nanan nance nancy nando nanny nanos nants naomi nappa nappy napus nares nario narod narra nasal nasil nasty natal natch nated nates natin natok nator natty naval navel nazar nazis nazwa ndash nding nears neath neato neces necks necro needa needs needy neers negli negra negro neice neigh nekoj neler nella nelle nelly nents neous nepal neque nerds nerdy nerfs nergy nerve nervy nessa nesta neste nests netic netsh neuen neuer neues neuro never nevis nevus newbs newer newex newly newts nexus ngage ngewe nginx ngsub nhieu niall nical nicer niche nicht nicki nicks nicky niece nieuw nieve nifty nigel niger nigga night nigra nihil nikal nikki nikon niles ninco nines ninja ninth nippy nique nisin nisms nists nites nitro nitty nivel nixed nixon nized nkosi nkotb nlite nobel nobis noble nobly nobus noche nodal nodes nodvd noice noida noire noise noisy noite noize nokia nokta nolan nomad nomen nomex nomic nonce nonin noobs nooks noone noord noosa noose norco norma norms norsk norte north nosed noses nosey nosis nossa nosso notch noted notes notin notre notte nouns novel novia novos novus nplib ntact nucle nuded nudes nudge nudum nueva nuevo nuked nukes nulla nulls numba numer nummy nunca nuova nuove nuovo nurse nutes nutri nutty nylon nymph oases oasis oaths obama oberg obese obeys obits objec objet objid obras obser ocala occas occlu occur ocean ochre oclug octal octet octyl oddly odode odoin odors odour oduct ofall offal offen offer offic offre ofits often ofthe ogame ogden ogous ogres ohana ohare ohmic ohooh oiled oiler ojala okays okies olden older oldie oleae oleic oligo olism olive ollie olmak ology olsen olson olsun oltre omaha ombud omega omens omits omnes omnia omnis onary oncom onder oneal onion onium onlay onlin onsen onset onthe ontop oomph oozed oozes opamp opens opera opine oping opium oppor oprah opted optic optim optus orale orang orapw orate orbit orcad orcas orden order ordre oredr organ orgie orice orien origi orion orkid orkut ortho ortiz orton osama oscar oscil osreb osteo otaku other otras otros otter ought ounce ouput ously outdo outed outer outro outst outta ouvir ovale ovals ovary ovata ovate ovens overs overt ovina ovine ovoid owing owned owner oxfam oxida oxide oxime oxyde oyunu ozawa ozone pablo pacar paced pacer paces pacha packs pacts paddy padre pagal pagan pagar paged pagel pager pages pagum paige pails pains paint pairs paisa paiva paket pakke paleo paler pales palin palit pallu pally palma palms palpi palsy panda pando panei panel panes pangs panic panko panna panne panos pansy panto pants panty paola paolo papal papas papel paper paral param paras parca parce pared paren pares paris parka parks parla parle parma parol parry parse parte parti parts party parva parvo pasar paseo pases pasha pasos passa passe pasta paste pasts pasty patch pated patel pater patho paths pathy patie patil patio patna patos patra patsy patti patty paula paulj paulo pauls pause paved paver paves pawns paxil payed payee payer payin payne payor pclae peace peach peaks pearl pears pease peasy pecan pects pedal pedir pedis pedro peeks peels peeps peers peeve peggy peice pelea pelle pelos pelts penal pence pends pened penis penne penny pense penta penuh peony peopl peppy pepsi perce perch perdi perdu perez peril perio perks perky perma perme perms perro perry perso perth pervs pesca pesky pesmi pesos peste pesto pests petal peter petit petra petri petro petty pezzi pfeil pgfan phage phair pharm phase phate pheno phere phigh phils phish phism phlei phoma phone phono phony photo phous phyla physi piace piano pices picid picks picky picts piczo pidge piece piers piesa piety piezo piggy pikes pilaf pilav piled piles pilex pilin pills pilot pilus pimps pinay pinch pines piney pings pinks pinky pinot pinoy pinta pinto pints pinup pions pious piped piper pipes pipet pique pirat pismo pisos pissy pista piste pists pital pitas pitch pithy pitta pitti pitts pitty piven pivot piwik pixar pixel pixie pixma pizza pking pkuhn placa place plage plaid plain plait plaka plana plane plang plank plano plans plant plasm plata plate plato plats platy playa plays plaza plazh plead pleas pleat pleco plein plese plesk plete pleut plexi plied plier plies pliku pling plist plone plore plots plows pluck plugs pluie plumb plume plump plums plush pluto pment poate pobre poche podem poder poems poeta poets pohly poids point poise poked poker pokes pokey polar poled poles polio polis polit polka pollo polls pollu polly polos polyp pombe ponds poner pongo ponte pooch pooja poole pools poops poopy popes poppe poppy popup poral porch pores porno porns porta porte porto ports porwr posal posed poser poses poset posit posix posse possi posta poste posto postr posts postu potas poten potty pouch pound pours pouty powcr power ppnow praca pracy prada prado praia prams prank pratt prawn prays preci precy prefs prego prema prepa preps presi press prety preva previ preys price prick pricy pride pried prijs prima prime primi primo primp pring print prion prior prise prism privy priya prize proba probe probs proce procs prods produ profi profs progr promi promo proms promt prone prong proof propa prope propo props prose prota proto proud prove provi prowl proxi proxy prude prune przez psalm psoas psych psyco pubes pubic pubis publi pucks pudgy pueda puede puedo puffs puffy puget pukka pulls pully pulmo pulps pulpy pulse pumas pumps punch punks punky punta punto punts punyu pupae pupal pupil puppy puree purer purge purrs purse purty purus pushy pussy putas putea puted puter putes putin putts putty puyol pwede pwned pyaar pygmy pylon pyran pyres pyrex quack quads quail quake quale quali quand quant quark quart quash quasi quate quays queda quedo queef queen queer quell quent quero query queso quest queue quick quien quiet quill quilt quinn quips quire quirk quite quits quota quote quran rabbi rabid rable raced racer races racic racks radar radia radii radio radix radon rafal rafts raged rages ragga rahul raids rails rains rainy raion raise raked rakes rales rally ralph rambo ramen ramet ramon ramos ramps ramus ranch randy range rangi ranks ranma rants raped rapes raphe raphy rapid raquo rarer rasan raspy rasta rated rater rates ratio ratte ratty raved raven raver raves rayne rayon razah razed razon razor reach react reads ready reais reali reall realm reals realy reams reaps rears rebar rebel rebum rebut recap recat recep recht recip recog recom recon recor recov recta recto recur recut reddy redex redid redox reduc redux reece reeds reefs reeks reels reese refed refer refit regal regan regen reget regex regia regio regis rehab reich reife reign reiki reine reins reise rekon relat relax relay relia relic relly relma remap remax remem remit remix remot remus renal rence rendu renee renew renga renin rents renzo repay repel reper repli reply repos repre repro rerio rerum rerun resco resem reser reset resid resin resis resol reson respi reste resto restr rests resus retin retro retry reuse revel reves revit revue rexel reyes rghit rhage rhein rhino rhode rhyme riage rials ribet rican ricci ricco ricer riche ricki ricky ricoh rider rides ridge ridin riers riety riffs rifle rifts riggs right rigid rigor riick riled riley rindi rings rinks rinse riots rious ripen riper risen riser rises rishi risks risky rissa risus rites rithm ritmo ritzy rival rived riven river rivet rized rmdir rnold roach roads roams roars roast robbs robes robin robot rocco roche rocks rocky rodeo roduc roger rogue rohan rohit roids roils rojak rojas roles rolex rolls roman romeo romps ronal ronan ronda rondo roofs rooms roomy roost roots roped ropes rorya rosea roses rosie rosin rossi rosso rotor rouge rough round rouse route routs rover roves rowan rowdy rowed rowel rower roxas roxio royal royce rsync ruben ruber rubra ruddy rufus rugby ruins ruled ruler rules rumah rumba rumen rummy rumor runes rungs runic runny rupee rupli rural ruses rusia russe rusts rusty rutin ruven rycen ryder ryote rythm saath saben saber sabes sabia sable sabre sacar sacha sachs sacks sacle sacra sacri sadam sadly saeco safer safes safle sagan sagas sagem sagen sages saggy sahil sails saint saith sajna sakes salad salah salam salar salem salen sales salir salle sally salma salon salou salsa salto salts salty salud salut salva salve salvo samba samen samme sammy sande sandr sands sandy sania sanju sansa santa santo sanyo sapdb sappy sarah sarap saree sarge sarin saris sarki sarod sasha sassy satan satay sated satel sates satin satis satus satya sauce saucy saudi sauna saute savas saved saver saves savin savor savvy sawed saxon saxty sayfa sayin scabs scala scald scale scalp scaly scams scans scant scape scare scarf scarp scars scart scary scene scent sched schol schon schoo scien scifi scion scoff scold scone scons scoop scoot scope scopy score scorn scott scour scout scowl scram scrap scree screw scrim scrip scrub scrum scuba scuff seach seals seams sears seats sebum secon secre sects secur sedan sedge sedis seeds seedy seein seeks seems seeps seers segue sehen seiko seine seins seize seksi selec selfs sella sells selma selmi selon selva seman semen semis semua sence senda sends sendy senha senna senor sense sensi senso sensu sents senza separ sepia septa septs serch serfs serge seria serie serif serio serps serpy serra serum serve servi servo sesso setae setts setup seule seuss seven sever sewed sewer sexed sexes sexsi sexta sexys shabu shack shade shady shaft shail shake shaky shale shall shalt shame shams shana shane shang shank shape shard share shark sharp shart shaun shave shawl shawn sheaf shear sheds sheen sheep sheer sheet sheik shelf shell sheng sherk shied shiek shies shift shige shila shill shims shina shine shins shiny ships shire shirk shirt shite shits shiva shizz shmop shoal shock shoei shoes shojo shold shone shook shoot shops shore shorn short shots shoud shoul shout shove shown shows showy shoyu shpat shred shrek shrew shrub shrug shugo shuld shuns shunt shure shuts shyla shyly siamo sibel sible sical sicko sidan sided siden sider sides sidux siege sieht sient siete sieve sigan siggy sighs sight siglo sigma signa signe signi signs sigue sigur silat silks silky sills silly silos silts silty silva silyl simak simon simpy simul since sinew singe singh sings sinha sinks sinus sions sippy sired siren sires sirup sisal sissy sista sists sitar sited sites sitet sitio sitll situa situs sivas sixes sixth sixty sized sizer sizes skank skate skecz skeen skeet skein skews skids skied skier skies skiff skill skimp skims skins skint skips skirt skits skoda skola skool skort skrun skull skunk skype slabs slack slags slain slams sland slang slant slapd slaps slash slate slats slaty slave slays sleds sleek sleep sleet slept slice slick slide slike slime slimy sling slink slips slits slitz slong sloop slope slosh sloth slots slows slugs slumb slump slums slung slurp slurs slush sluts slyly smack small smart smash smear smell smelt smile smirk smite smith smock smoke smoky smoot smote smurf smyth snack snafu snags snail snake snaps snare snark snarl sneak sneer sneha snide sniff snipe snips snobs snoop snore snort snout snows snowy snubs snuck snuff soaks soaps soapy soars sober sobre socal socio socks socom sodas sofas sofia softs softy soggy soils soins solar soldi soled soles soley solic solid solos solve somal somes somos sonal sonar songs songz sonia sonic sonny sonra sonst sooth sooty soppy sopra sored sores sorry sorta sorte sorts sotto souks sould souls sound soups soupy sours south sowed sowie space spade spain spake spall spams spank spans sparc spare spark spars spasm spate spats spawn speak spear speci speck specs spect specu speed speek spell spelt spend spent sperm spews spice spicy spied spiel spies spike spiky spill spilt spina spine sping spins spiny spire spiro spite spits spitz splat splay split splot spoil spoke spond spony spoof spook spool spoon spore sport spose spots spout spray spree sprig sprit sprog sprue spuds spunk spurl spurs spurt spurx squab squad squat squib squid staal staan staat stabi stabs stack stacy stadt staff stage stags staid stain stair stake stale stalk stall stamp stand stank stant staph stare stark starr stars start starz stash stata state stati stato stats statu stave stays stdin stead steak steal steam steed steel steep steer steht stein steko stele stems steno stent steph steps stern steve stews stich stick stiff stihl stile still stilt stimu sting stink stint stipe stiri stirs stock stoic stoke stole stoma stomp stone stony stood stool stoop stopp stops store stork storm stort story stots stout stove stows strap strat straw stray strep strip strom stron struc strug strum strut stubs stuck studi studs study stuff stump stung stunk stuns stunt stupa style suave suber subir subse subsp subst sucha suche sucht sucka sucks sucky sudan suede suelo suena suffi sugar suger suhag suing suite suits sujal sujet sukuk sulci sulfa sulin sulky sulla sulle sully sults sumac suman sumed sumer summa sunny suntv suomi super suppl supra surah sural surat sured sures surfs surge surgi surly susan sushi susie sutra svete svoju swabs swage swags swale swamp swank swans swaps swarm swash swath sways swear sweat swede sweep sweet swell swept swift swims swine swing swipe swirl swish swiss swith swoon swoop sword swore sworn swung sympa synch syncs syndy synod synth syrah syria syrup sysfs sysop syste sytem tabby tabla table taboo tachi tacit tacks tacky tacos tacts taeda taffy tages tahoe tahun taiji tails tains taint takai taken taker takes takin takki tales talib talks tally talon taluk talus tambo tamed tamer tamil tammy tampa tance tanec taney tanga tango tangs tangy tania tanks tansy tanta tanto tants tanya tapas taped taper tapes tapos tarda tarde tardy targa tarot tarps tarry tarsi tarts taser tases tasks taste tasty tated tater tates tatoo tatty taunt taupe tawny taxed taxes taxis taxol taxon tbody tdaxp teach teams tearm tears teary tease teats techn techs techy tects teddy teens teeny teers teeta teeth tegen teins teint tekst telah telat telco telex tells telly telus temas temic tempi tempo temps tempt tence tench tency tendo tends tener tenes tenet tenga tengo tenho tenia tenis tenon tenor tensa tense tenth tents tepid teraz tered teres teria terme termi terms terns terol terra terre terri terry terse terug tesco tesla tessa testa teste testi testo tests testy tetas tetra tetsu tevez tevin texan texas texte texto texts thane thang thank thant thanx thats thaws theca theft theif their thelr theme thems thera there therm thers these theta thick thief thier thigh thine thing think thins thiol third thoes thong thorn thors those thous three threo threw thrid throb throm throu throw thugs thule thumb thump thunk thurs thyme tials tiara tibet tibia tical tices ticki ticks ticle tidak tidal tides tidus tiene tient tiers tiffs tific tigen tiger tight tigre tihng tikes tikka tilda tilde tiled tiles tills tilly tilts timed timer times timex timid timmy tinal tinct tinea tines tinge tings tinny tints tinue tions tious tiple tippy tipsy tired tires tisha tissu tists titan titel titer tithe title titra titre titty tives tiwag tized tliat tment toads toast toate toatl tober tocar tocol todas today todos toile toils token tokio tokyo toler tolls tomar tomas tombe tombs tomer tomes tommy tomoz tonal toned toner tones tongs tonic tonne tonsa tonto tonya tools toons tooth topaz topes topic topos toque torah torch toric torre torso torte torts torus tosis total totam totem totes tothe totic totum totus touch tough tours toute touts towed towel tower towne towns toxic toxin toyed trace traci track tract tracy trade tradi trail train trait tramp trams trang trans traps trary trash trast trata trate trawl trays tread treat treba treed trees treet treks treme trend trent tress triad trial trian tribe trick trict tried trier tries trike trill trims trina tring trios tripe trips trish trite trode trois troll trols trond trong trons troop tropa trope trots troup trout trove truce truck truco truer trues truly trump trunk truss trust truth truvo tryed tryin tryna tryst tsuki tubal tubby tuber tubes tucks tudes tudor tufts tujhe tulad tulip tulle tulsa tummy tumor tuned tunel tuner tunes tunic tunis tupac tuple tural turbo turds tured turer tures turfs turin turks turns tushy tusks tutaj tuted tutes tutor tutta tutte tutti tutto tutus twain twang twats tweak tweed tween tweet twice twigs twill twine twink twins twirl twist twits tying tyler tylko typed types typhi typos tyres tyros tyson ually uated udder uence uetzi ufone ukemi ulate ulcer ulead ulema ulnar ultra umask umber umole uname unary uncer uncle uncom uncon uncut undef under undid undue unfit unger unica unico unify union unite units unity unlit unmet unpre unpub unser unset untae unten unter until untuk unwed unzip updos upped upper upset upton urate urban urged urges urine uring usage usagi users usher using usmle usted usual usurp usury utara uteri utero utile utili utils ution utter utube utzon vache vacua vacuo vader vagal vague vagus vajza valde valet valid valle valli valor value valve vamos vanaf vance vanes vapid vapor varia varie varus vases vaste vated vault vcard vcore vdieo veces vedas vedic vedio veers vegan vegas veges veils veins velar velba velco velit veloc velop velox vemos vende vendo venga venir venom venta vente venti vento vents venue venus verbo verbs verde verge verre verry versa verse verso verte verti vertu verve verze vests vette vexed veyed vhost viaje vials viata vibes vibra vical vicar vices vicki vicky vidal vidas vided video vider vides vidio vidoe vidos vidya viedo vieja viejo viele viene viens vient views vigil vigor vijay villa ville villi vince vinci vines vinta vinyl viola vious vioxx vipat viper viral virco vireo vires virgo virus visas vised visio visit vison visor vista visti visto vitae vital vitor vitro vival vivax vives vivid vivir vivre vixen vizio vlads vlogs vocab vocal voces vodka vogue voice voici voids voila voile volar voles volta volte volts volun volvo vomit vores voted voter votes votre vouch vould vowed vowel voxel vraag vrais vrata vreau vtech vulaj vulva vuole vying wacko wacky wacom waded wader wafer waged wager wages wagon wahoo wails waist waite waits waive waked wakes waldo wales walks walla walle walls wally walsh waltz wanda wands waned wanes wanna wants wards waren wares warez warms warns warps warts warty wasnt wasps waste wasup watch water watts waved waver waves waxed waxes wayne wears weary weave webby webct weber wedge weeds weedy weeks weeny weeps weezy wefan wegen wehbe weigh weird weirs weiss weisz welch welds wells welsh welts wench wendy werkt wernt whack whadu whale wharf whats wheal wheat wheel whens where which whieh whiff while whims whine whiny whips whirl whisk whist white whith whizz whofe whois whole whoop whore whorl whose wibby wicca wicks widen wider widow width wield wierd wifes wifey wigan wight wikia wikis wilco wilde wilds wildy wiles wiley wills willy wimax wimps wimpy wince winch winds windy wines wings winks winxp wiped wiper wipes wipro wired wires wiser wisps wispy wists witch witha witht witli witty wives wkend wlohe wmode wneud wobec woffa wojny woken wolfe wolff woman wombs women wonky woods woody wooed woofs wooly words wordt wordy works world worms worry worse worst worth wotlk woudl would wound woven wowed wraps wrath wreak wreck wrens wrest wring wrist write writs wrong wrote wrung wryly wudnt wurde wurst wyatt wykop xajax xampp xanax xanga xargs xcept xchat xcopy xenon xeric xerox xiang xoxox xpath xrays xterm xxvii xylan xylem yacht yadda yahoo yaniv yanks yaork yards yarns yates yatta yawns yazan yeaah yeahh yeahs yearn years yeast yeild yells yield yikes ylang yoann yogic yogis yoink yoked yokes yolks yorum yoshi youll young youre yours youth youve ysgol yucca yucky yukon yummy yusuf yuugi zakup zaman zanna zante zavvi zawya zebra zedge zeigt zeker zelda zeman zener zenro zeros zesty zetia zhane zhang zheng zhong ziggy zilch zines zinta zippo zippy zlota zloty zocor zoekt zohan zoids zonal zoned zones zooms zpatz zurpy zyban zymes zyvox zzril zzynx"},"id":{"a":"abang acara agama ajaib akhir aktif alami album ambil angin angka angsa antar arang aroma asing bagus bahan bahas bakar bakso balai balas balik balon bambu barat basah batas batik bawah bayar bebas bebek bekal belum benar benci beras berat besar besok betul bibir bocah bodoh botol bubur bukan bukit bulan bulat bumbu bunga cabai cabut calon canda capek catat cepat cerah ceria cinta cuaca cukup dalam damai dapat dapur darah datar dekat dosen dunia empat entah fajar fakta fokus gadis gagah gagal gajah galak ganti garam garis gelap gelas gempa gemuk gerak gigit gitar gurih habis hadir hakim halal halus hamil hanya hapus harap harga harum harus hasil hebat heran hewan hidup hijau hitam hujan hukum huruf hutan iklan indah istri jahat jahit jalan jalur jambu jamur janji jarak jarum jawab jelas jelek jenis jeruk jujur kabar kabel kabut kaget kakak kakek kalah kalau kamar kamus kanan kapal kapan kapas kapur karya kasar kasih kasur katak kawan kebun kecil kedai kejar kelas kerap keras kerja kesan ketik ketua kilat kimia kirim kisah kolam komik koran kotak kotor kulit kunci kursi lahan lahir lampu lapar lawan layak layar lebah lebar lebih lelah lemah lemon lepas letak lewat libur lidah lihat lilin lipat logam lulus lumut lunak lurus lutut mabuk macam macet mahal makan malam malas mampu manis marah masak masih masuk mawar medan media megah mekar menit merah mesin mimpi minta minum mirip mobil modal model moral motor mulai murah murid musik musim musuh nakal nanas nanti nasib nenek nilai nomor nyata orang pacar padat pagar pahit pajak pakai paket paksa paman panas panen papan parah pasar pasir pasti patah pecah pedas pelan penuh perak perlu perut pesan pesta petir piala piano pikir pilih pilot pintu pisah pisau pohon pokok polos pompa puasa pucat pulau pulsa punya pusat putar putih putra putri racun radio rajin ramah ramai rapat rawat rebus resep resmi riang rindu robot rokok ruang rumah rumit rusak rutin sabar sabun sadar sakit salah salam saldo salju samar sawah sayap sayur sebab sedih segar sejuk semua senin senja siang sifat sinar singa sopan suara subur sudah sudut sulit sumur sunyi surat surga susah tabel tahan tahun tajam takut taman tanah tanda tanya tebak tebal tegas tekad tekan telah telur teman tenda tepat tetap tiang tidak tidur tikar tiket tikus timur tinta titik tolak topik tubuh tugas tuhan tujuh tukar tulis tulus tunda turun tutup udara ujung ulang untuk utama utara video vital wajah wajib wakil waktu warga warna yakin zaman","v":"abadi abang acara agama ajaib akhir aktif aktor alami album alias ambil ampun angin angka angsa antar arang arena aroma arsip asing atlas atlet awali babak badan badut bagai bagan bagus bahan bahas bahwa bakar bakso balai balas balik balon bambu barat baris basah basis batal batas batik batin batok bawah bayam bayar bebas bebek begal bekal bekas belah belas belum benar benci beras berat beres besar besok betul bibir bijak bilah bilik bisik bisul bocah bodoh bolos bonus botol bubar bubur budak bukan bukit bulan bulat bumbu bunga bunuh buram busuk busur butir buyar cabai cabut cacar cacat calon canda candu capai capek catat catur cegah celah celup cemas cepat cerah ceria cicak cicil cinta cipta coret cuaca cubit cukup cukur curam dahan dalam damai dapat dapur darah darat datar debar debat dekat dewan dinas domba donat donor dosen dosis drama dukun dunia dusun edisi eksis ember emosi empat empuk encer entah enzim fajar fakta fatwa fiksi final fisik fokus forum gabus gadis gaduh gagah gagal gagas gajah galak galau ganas ganda ganti garam garis garpu gatal gawat gelap gelar gelas gemar gempa gemuk genap gerai gerak gesit getah getar gigih gigit gilas gilir gitar goyah gubuk gugup gugur gulai gulat gurih guyon habis hadap hadir hakim halal halus hamil hampa hanya hapus harap harga harum harus hasil hebat heran hewan hidup hijau hitam hujan hukum huruf hutan iklan ikrar ikuti imbau impor indah induk infus insan intan intip intro irama istri jabat jahat jahit jaksa jalan jalur jamak jambu jamin jamur janda janji jarak jarum jawab jejak jelas jelek jemur jenis jenuh jerit jeruk jilat jinak joget jorok juara judul jujur jumat jumbo jurus kabar kabel kabut kacau kaget kakak kakap kakek kalah kalap kalau kalbu kaldu kamar kamus kanal kanan kapak kapal kapan kapas kapur karat karet karya kasar kasih kasur kasus katak kawan kawat kayuh kebal kebas kebun kecap kecil kedai kejar kejut kelas keluh kemas kenal kepak kerah kerap keras kerja kerut kesan ketan ketat ketik ketua kicau kilat kilau kimia kiper kirim kisah kisut klaim klien kobar kocak kodok kolam komik koper koran kotak kotor kuali kuasa kubah kubis kubus kudus kulit kuman kumis kumuh kunci kuota kupas kupon kursi kurus kutip labil labuh lahan lahap lahir laksa lalai lalat lampu lapar lapis lapor larut lawak lawan layak layar lazim lebah lebar lebat lebih legit lelah lemah lemak lemas lemon lepas letak letih letup lewat libas libur licin lidah lihat lilin lipat lobak logam logat lugas luhur lukis lulus lumba lumut lunak lunas luput luruh lurus lusin lutut mabuk macam macet mahal mahir makan makna malam malas mampu manis manja mapan marah marga masak masam masih masuk mawar mayat medan media megah mekar melon memar menit merah merak mesin mesra mimpi minat minta minum minus mirip misal mobil modal model modis mogok moral motor mulai mulia mulus murah murid murni musik musim musuh nafas nafsu nakal nalar nanas nanti napas nasib nenek niaga nilai nomor norma nyala nyali nyata nyawa objek obral obrol oknum oleng ombak omong opera optik orang orasi orbit organ orkes pacar padam padat pagar pahat pahit pajak pakai pakan pakar paket paksa palsu paman panas pandu panen papan parah paras parit paruh pasal pasar pasca pasif pasir pasta pasti patah patuh patut pecah pecat pedas pedih pegas pekan pekat pekik pelan peluk penuh perak perih perlu perut pesan pesta petak petik petir piala piano picik pijak pikir pikul pilar pilih pilot pintu pipih pisah pisau pohon pokok polis polos pompa prima prosa puasa pucat pucuk pudar puisi pukul pulau pulih pulsa punah punya pupuk pupus purba pusar pusat putar putih putra putri putus rabun racik racun radio ragam rahim rajin rajut rakus ralat ramah ramai ramal rambu ranah rancu rapat rapor rapuh rasio rasul ratus rawan rawat rayap rebah rebus redam redup rehat rekam rekan remuk renda resah resep resmi restu riang ribut rilis rimba rindu ritme roboh robot rokok roman rotan ruang rubah rukun rumah rumit rumus rusak rusuh rutin sabar sabit sabtu sabun sadar sadis saham sahut saing sains sajak sakit sakti salah salam saldo salin salju salon samar sandi sasar sawah sawit sayap sayur sebab sebar sedan sedap sedih sedot segar segel sejuk sekat sekop selai selam selat semai semen semua sendi sendu senin senja sepak serah serai serak seram serat serba serta setia siaga siang sidik sifat siksa silam silet simak sinar singa sinis siram sisih sisik sisir situs skala skema sobat sodok sogok sopan sorak sorot sosis sosok suami suara subur sudah sudut sujud sukar sukma sulam sulap sulit sumbu sumur sunat sunyi supir surat surga surut surya susah susun susut sutra tabah tabel tabir tabur tagih tahan tahap tahun tajam tajir takut talas taman tamat tanah tanda tanya tarif taruh tatap tebak tebal tebar tebus teduh tegak tegas teguh tegur tekad tekan tekun telah telan telat telur teman tenda tepat tepuk terik tetap tetes tiang tidak tidur tikar tiket tikus timba timur tinju tinta tirai titik titip tobat tolak tolol topan topik tubuh tugas tuhan tujuh tukar tulis tulus tumit tunai tunas tunda tupai turun tusuk tutup udang udara ujung ulama ulang umpan umpat umrah unduh undur unjuk unsur untuk urung usang utama utang utara valid video virus vital vokal vonis wadah wahyu wajah wajar wajib wakil waktu walau wangi warga warna wasit watak wujud yakin yatim zakat zaman zebra"}};
+
+/* Nilai tiap huruf tebakan terhadap jawaban (aturan huruf ganda seperti Wordle asli) */
+function wdEvaluate(guess, answer) {
+  const res = new Array(guess.length).fill('absent');
+  const rest = {};
+  for (let i = 0; i < guess.length; i++) {
+    if (guess[i] === answer[i]) res[i] = 'correct';
+    else rest[answer[i]] = (rest[answer[i]] || 0) + 1;
+  }
+  for (let i = 0; i < guess.length; i++) {
+    if (res[i] !== 'correct' && rest[guess[i]] > 0) { res[i] = 'present'; rest[guess[i]]--; }
+  }
+  return res;
+}
+
+(() => {
+  /* ---- Catatan rekor dan statistik ---- */
+  const arenaStore = appStore.get('beresin.arena', {});
+  const rec = (arenaStore && typeof arenaStore === 'object' && !Array.isArray(arenaStore)) ? arenaStore : {};
+  rec.typing = rec.typing || {};
+  rec.reflex = rec.reflex || {};
+  rec.wordle = rec.wordle || {};
+  const saveRec = () => appStore.set('beresin.arena', rec);
+  const view = $('.view[data-view="arena"]');
+  const inArena = () => !view.hidden;
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  /* ---- Tab ---- */
+  $$('#ar-tabs .chip').forEach(ch => ch.addEventListener('click', e => {
+    if (e.detail > 0) ch.blur();
+    $$('#ar-tabs .chip').forEach(c => c.classList.toggle('on', c === ch));
+    ['ty', 'rf', 'wd'].forEach(k => { $('#ar-' + k).hidden = k !== ch.dataset.p; });
+    if (ch.dataset.p !== 'ty' && typing.state === 'run') typing.cancel();
+    if (ch.dataset.p !== 'rf') reflex.stop();
+  }));
+  const activePane = () => { const c = $('#ar-tabs .chip.on'); return c ? c.dataset.p : 'ty'; };
+
+  /* ================= Tes kecepatan mengetik ================= */
+  const POOL = {
+    id: ('yang dan di ke dari untuk dengan pada ini itu saya kamu dia kami kita mereka tidak ada akan sudah bisa harus lebih juga atau karena jika saat tentang '
+      + 'belajar bekerja makan minum tidur bermain membaca menulis berjalan berlari rumah sekolah kampus kantor teman keluarga waktu pagi siang malam hari minggu bulan tahun '
+      + 'buku pena meja kursi laptop telepon musik film jalan kota desa negara dunia air api angin tanah langit matahari bintang hujan panas dingin besar kecil baru lama '
+      + 'cepat lambat mudah sulit senang sedih marah takut berani pintar rajin sehat kuat indah bersih penting tugas ujian dosen kuliah nilai jadwal catatan ide rencana '
+      + 'tujuan impian semangat berhasil mencoba memulai selesai berhenti lanjut sekarang nanti kemarin besok selalu kadang sering jarang mungkin pasti benar salah '
+      + 'banyak sedikit semua beberapa setiap antara sebelum sesudah ketika sambil walaupun supaya agar maka lalu kemudian akhirnya pertama kedua ketiga').split(' '),
+    en: ('the be to of and a in that have it for not on with he as you do at this but his by from they we say her she or an will my one all would there their what so up out if '
+      + 'about who get which go me when make can like time no just him know take people into year your good some could them see other than then now look only come its over think also '
+      + 'back after use two how our work first well way even new want because any these give day most us study learn write read build plan focus start finish simple quick small '
+      + 'large happy quiet strong bright clean river house table paper pencil school friend family morning evening night today tomorrow always sometimes never maybe really').split(' ')
+  };
+  const typing = (() => {
+    const ui = { box: $('#ty-box'), words: $('#ty-words'), input: $('#ty-input'), hint: $('#ty-hint'), time: $('#ty-time'),
+      wpm: $('#ty-wpm'), res: $('#ty-res') };
+    const t = { state: 'idle', lang: 'id', dur: 30, list: [], idx: 0, spans: [], startAt: 0, timer: null,
+      correctChars: 0, typedChars: 0, matchChars: 0, okWords: 0, badWords: 0 };
+
+    function genWords(n) {
+      const pool = POOL[t.lang], out = [];
+      let last = '';
+      while (out.length < n) { const w = pool[Math.floor(Math.random() * pool.length)]; if (w !== last) { out.push(w); last = w; } }
+      return out;
+    }
+    function build() {
+      t.list = genWords(150);
+      t.idx = 0;
+      ui.words.innerHTML = '';
+      t.spans = t.list.map(w => { const s = document.createElement('span'); s.className = 'w'; s.textContent = w; ui.words.appendChild(s); ui.words.appendChild(document.createTextNode(' ')); return s; });
+      t.spans[0].classList.add('cur');
+      ui.box.scrollTop = 0;
+    }
+    function reset(focus) {
+      clearInterval(t.timer);
+      Object.assign(t, { state: 'idle', startAt: 0, correctChars: 0, typedChars: 0, matchChars: 0, okWords: 0, badWords: 0 });
+      ui.input.disabled = false; ui.input.value = '';
+      ui.time.textContent = t.dur; ui.wpm.textContent = '0';
+      hide(ui.res); show(ui.hint);
+      build();
+      if (focus) ui.input.focus();
+    }
+    const elapsed = () => (performance.now() - t.startAt) / 1000;
+    function liveWpm() { const e = elapsed(); return e > 1 ? Math.round((t.correctChars / 5) / (e / 60)) : 0; }
+
+    function start() {
+      t.state = 'run';
+      t.startAt = performance.now();
+      hide(ui.hint);
+      t.timer = setInterval(() => {
+        const left = Math.max(0, t.dur - elapsed());
+        ui.time.textContent = Math.ceil(left);
+        ui.wpm.textContent = liveWpm();
+        if (left <= 0) finish();
+      }, 200);
+    }
+    function cancel() { clearInterval(t.timer); reset(false); }
+
+    function commit(typed) {
+      const target = t.list[t.idx];
+      const span = t.spans[t.idx];
+      let match = 0;
+      for (let i = 0; i < typed.length; i++) if (typed[i] === target[i]) match++;
+      t.typedChars += typed.length + 1;
+      t.matchChars += match + 1;
+      if (typed === target) { t.okWords++; t.correctChars += target.length + 1; span.className = 'w ok'; }
+      else { t.badWords++; span.className = 'w no'; }
+      t.idx++;
+      if (t.idx >= t.list.length) { finish(); return; }
+      const next = t.spans[t.idx];
+      next.classList.add('cur');
+      const top = next.offsetTop - t.spans[0].offsetTop;
+      ui.box.scrollTop = Math.max(0, top - 36);
+    }
+
+    function finish() {
+      if (t.state !== 'run') return;
+      clearInterval(t.timer);
+      t.state = 'done';
+      ui.input.disabled = true;
+      ui.time.textContent = '0';
+      const e = Math.min(elapsed(), t.dur) || t.dur;
+      const wpm = Math.round((t.correctChars / 5) / (e / 60));
+      const acc = t.typedChars ? Math.round(t.matchChars / t.typedChars * 100) : 0;
+      ui.wpm.textContent = wpm;
+      $('#ty-rwpm').textContent = wpm;
+      $('#ty-racc').textContent = acc + '%';
+      $('#ty-rwords').textContent = `${t.okWords} dari ${t.okWords + t.badWords}`;
+      const key = `${t.lang}-${t.dur}`;
+      const prev = rec.typing[key] || 0;
+      let note = wpm < 20 ? 'Awal yang bagus. Coba pelan tapi akurat dulu, kecepatan akan menyusul.'
+        : wpm < 40 ? 'Lumayan. Kecepatan rata-rata orang mengetik ada di kisaran 40 kata per menit.'
+        : wpm < 60 ? 'Bagus! Kamu sudah di atas rata-rata.'
+        : 'Luar biasa cepat!';
+      if (wpm > prev && wpm > 0) { rec.typing[key] = wpm; saveRec(); note = `Rekor baru untuk ${t.dur} detik (${t.lang === 'id' ? 'Indonesia' : 'Inggris'})! ` + note; }
+      else if (prev) note += ` Rekormu: ${prev} kata per menit.`;
+      $('#ty-rtitle').textContent = 'Waktu habis';
+      $('#ty-rnote').textContent = note;
+      show(ui.res);
+      ui.res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    ui.input.addEventListener('input', () => {
+      if (t.state === 'done') return;
+      let v = ui.input.value;
+      if (t.state === 'idle' && v.trim()) start();
+      if (t.state !== 'run') return;
+      if (/\s/.test(v)) {
+        const typed = v.trim();
+        if (typed) commit(typed);
+        ui.input.value = '';
+        return;
+      }
+      const cur = t.spans[t.idx];
+      if (cur) cur.classList.toggle('bad', !t.list[t.idx].startsWith(v));
+    });
+    ui.input.addEventListener('focus', () => { if (t.state === 'idle') hide(ui.hint); });
+    ui.input.addEventListener('blur', () => { if (t.state === 'idle') show(ui.hint); });
+    ui.box.addEventListener('click', () => ui.input.focus());
+    $('#ty-again').addEventListener('click', () => reset(true));
+
+    const chipGroup = (sel, fn) => $$(sel + ' .chip').forEach(ch => ch.addEventListener('click', () => {
+      $$(sel + ' .chip').forEach(c => c.classList.toggle('on', c === ch));
+      fn(ch.dataset.v);
+    }));
+    chipGroup('#ty-lang', v => { t.lang = v; reset(false); });
+    chipGroup('#ty-dur', v => { t.dur = +v; reset(false); });
+
+    reset(false);
+    return { cancel, get state() { return t.state; } };
+  })();
+
+  /* ================= Refleks klik ================= */
+  const reflex = (() => {
+    const pad = $('#rf-pad'), tt = $('#rf-t'), ss = $('#rf-s');
+    let state = 'idle', timer = null, t0 = 0, results = [];
+    const best0 = () => rec.reflex.best || 0;
+
+    function paint(s, title, sub) { state = s; pad.dataset.state = s; tt.textContent = title; ss.textContent = sub; }
+    function renderStats() {
+      const last = results[results.length - 1];
+      $('#rf-last').textContent = last ? last : '-';
+      const l5 = results.slice(-5);
+      $('#rf-avg').textContent = l5.length ? Math.round(l5.reduce((a, b) => a + b, 0) / l5.length) : '-';
+      $('#rf-best').textContent = best0() || '-';
+      const box = $('#rf-list');
+      box.innerHTML = '';
+      l5.forEach((ms, i) => { const b = document.createElement('span'); b.className = 'badge'; b.textContent = `#${results.length - l5.length + i + 1}: ${ms} ms`; box.appendChild(b); });
+    }
+    function begin() {
+      paint('wait', 'Tunggu hijau...', 'Jangan ketuk dulu!');
+      timer = setTimeout(() => { t0 = performance.now(); paint('go', 'Ketuk sekarang!', ''); }, 1500 + Math.random() * 3000);
+    }
+    function press(stamp) {
+      if (state === 'idle' || state === 'result' || state === 'early') { begin(); return; }
+      if (state === 'wait') { clearTimeout(timer); paint('early', 'Terlalu cepat!', 'Tunggu sampai layar hijau. Ketuk untuk mencoba lagi.'); return; }
+      if (state === 'go') {
+        const ms = Math.max(1, Math.round((stamp || performance.now()) - t0));
+        results.push(ms);
+        let note = ms < 180 ? 'Luar biasa cepat!' : ms < 250 ? 'Cepat!' : ms < 350 ? 'Rata-rata orang.' : 'Masih bisa lebih cepat.';
+        if (!best0() || ms < best0()) { rec.reflex.best = ms; saveRec(); note = 'Rekor baru! ' + note; }
+        paint('result', `${ms} ms`, note + ' Ketuk untuk mencoba lagi.');
+        renderStats();
+      }
+    }
+    function stop() { clearTimeout(timer); if (state === 'wait' || state === 'go') paint('idle', 'Tes refleks', 'Ketuk untuk mulai. Ketuk lagi secepatnya saat layar berubah hijau.'); }
+
+    pad.addEventListener('pointerdown', e => { e.preventDefault(); press(e.timeStamp > 0 ? e.timeStamp : undefined); });
+    pad.addEventListener('click', e => { if (e.detail === 0) press(); });   // aktivasi lewat papan ketik
+    $('#rf-reset').addEventListener('click', () => { clearTimeout(timer); results = []; paint('idle', 'Tes refleks', 'Ketuk untuk mulai. Ketuk lagi secepatnya saat layar berubah hijau.'); renderStats(); });
+    renderStats();
+    return { stop };
+  })();
+
+  /* ================= Wordle ================= */
+  const wordle = (() => {
+    const LAYOUT = ['qwertyuiop', 'asdfghjkl', '*zxcvbnm#'];
+    const board = $('#wd-board'), kb = $('#wd-kb'), msgEl = $('#wd-msg'), endEl = $('#wd-end'), check = $('#wd-check');
+    const dict = {
+      id: { answers: ARENA_WORDS.id.a.split(' '), valid: new Set(ARENA_WORDS.id.v.split(' ')), name: 'Indonesia' },
+      en: { answers: ARENA_WORDS.en.a.split(' '), valid: new Set(ARENA_WORDS.en.v.split(' ')), name: 'Inggris' }
+    };
+    rec.checkDict = rec.checkDict || {};
+    let lang = 'id', g = null, cur = '', busy = false, msgTimer = null;
+
+    const gameKey = () => 'beresin.wordle.' + lang;
+    const stats = () => (rec.wordle[lang] = rec.wordle[lang] || { p: 0, w: 0, s: 0, m: 0, d: [0, 0, 0, 0, 0, 0] });
+
+    function newGame() {
+      const list = dict[lang].answers;
+      let a;
+      do { a = list[Math.floor(Math.random() * list.length)]; } while (g && list.length > 1 && a === g.answer);
+      g = { answer: a, guesses: [], status: 'playing' };
+      cur = '';
+      appStore.set(gameKey(), g);
+    }
+    function loadGame() {
+      const saved = appStore.get(gameKey(), null);
+      if (saved && typeof saved.answer === 'string' && saved.answer.length === 5 && Array.isArray(saved.guesses) && ['playing', 'won', 'lost'].includes(saved.status)) g = saved;
+      else { g = null; newGame(); }
+      cur = '';
+    }
+
+    function keyStates() {
+      const ks = {};
+      const rank = { absent: 1, present: 2, correct: 3 };
+      g.guesses.forEach(gs => wdEvaluate(gs, g.answer).forEach((s, i) => { const k = gs[i]; if (!ks[k] || rank[s] > rank[ks[k]]) ks[k] = s; }));
+      return ks;
+    }
+    function renderKeys() {
+      const ks = keyStates();
+      $$('.wd-key', kb).forEach(b => {
+        const k = b.dataset.k;
+        b.classList.remove('correct', 'present', 'absent');
+        if (ks[k]) b.classList.add(ks[k]);
+      });
+    }
+    function buildKeys() {
+      kb.innerHTML = '';
+      LAYOUT.forEach(row => {
+        const r = document.createElement('div'); r.className = 'wd-krow';
+        [...row].forEach(ch => {
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'wd-key';
+          if (ch === '*') { b.classList.add('wide'); b.dataset.k = 'enter'; b.textContent = 'Kirim'; b.setAttribute('aria-label', 'Kirim tebakan'); }
+          else if (ch === '#') { b.classList.add('wide'); b.dataset.k = 'back'; b.innerHTML = '&#9003;'; b.setAttribute('aria-label', 'Hapus huruf'); }
+          else { b.dataset.k = ch; b.textContent = ch; }
+          b.addEventListener('click', () => { press(b.dataset.k); b.blur(); });
+          r.appendChild(b);
+        });
+        kb.appendChild(r);
+      });
+    }
+    function renderBoard(revealRow) {
+      board.innerHTML = '';
+      for (let r = 0; r < 6; r++) {
+        const row = document.createElement('div'); row.className = 'wd-row'; row.dataset.r = r;
+        const guess = g.guesses[r];
+        const res = guess ? wdEvaluate(guess, g.answer) : null;
+        for (let i = 0; i < 5; i++) {
+          const tile = document.createElement('div');
+          tile.className = 'wd-tile';
+          if (guess) {
+            tile.textContent = guess[i];
+            tile.classList.add(res[i]);
+            if (r === revealRow) { tile.classList.add('reveal'); tile.style.setProperty('--i', i); }
+          } else if (r === g.guesses.length && g.status === 'playing' && cur[i]) {
+            tile.textContent = cur[i]; tile.classList.add('filled');
+          }
+          row.appendChild(tile);
+        }
+        board.appendChild(row);
+      }
+    }
+    function toast(text, ms) {
+      msgEl.textContent = text;
+      clearTimeout(msgTimer);
+      if (ms) msgTimer = setTimeout(() => { if (g.status === 'playing') msgEl.textContent = ''; }, ms);
+    }
+    function shake() {
+      const row = board.querySelector(`.wd-row[data-r="${g.guesses.length}"]`);
+      if (!row) return;
+      row.classList.remove('shake'); void row.offsetWidth; row.classList.add('shake');
+    }
+
+    function press(k) {
+      if (!g || g.status !== 'playing' || busy) return;
+      if (k === 'back') { cur = cur.slice(0, -1); renderBoard(); return; }
+      if (k === 'enter') { submit(); return; }
+      if (/^[a-z]$/.test(k) && cur.length < 5) { cur += k; renderBoard(); }
+    }
+    function submit() {
+      if (cur.length < 5) { toast('Hurufnya belum lengkap', 1500); shake(); return; }
+      if (check.checked && !dict[lang].valid.has(cur)) { toast('Kata tidak ada di daftar kata', 2000); shake(); return; }
+      g.guesses.push(cur);
+      const won = cur === g.answer;
+      cur = '';
+      if (won) g.status = 'won'; else if (g.guesses.length >= 6) g.status = 'lost';
+      appStore.set(gameKey(), g);
+      busy = true;
+      renderBoard(g.guesses.length - 1);
+      const delay = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 5 * 180 + 450;
+      setTimeout(() => {
+        busy = false;
+        renderKeys();
+        if (g.status !== 'playing') finishGame(true);
+      }, delay);
+    }
+
+    function finishGame(fresh) {
+      const s = stats();
+      if (fresh) {
+        s.p++;
+        if (g.status === 'won') { s.w++; s.s++; s.m = Math.max(s.m, s.s); s.d[g.guesses.length - 1]++; }
+        else s.s = 0;
+        saveRec();
+      }
+      const n = g.guesses.length;
+      $('#wd-etitle').textContent = g.status === 'won' ? 'Hebat, kamu berhasil!' : 'Belum berhasil';
+      $('#wd-etext').textContent = g.status === 'won'
+        ? `Kamu menebak "${g.answer.toUpperCase()}" dalam ${n} percobaan.`
+        : `Jawabannya adalah "${g.answer.toUpperCase()}". Coba lagi dengan kata baru!`;
+      toast(g.status === 'won' ? ['Luar biasa!', 'Hebat!', 'Keren!', 'Bagus!', 'Mantap!', 'Hampir saja!'][n - 1] : g.answer.toUpperCase());
+      $('#wd-sp').textContent = s.p;
+      $('#wd-sw').textContent = (s.p ? Math.round(s.w / s.p * 100) : 0) + '%';
+      $('#wd-ss').textContent = s.s;
+      $('#wd-sm').textContent = s.m;
+      const dist = $('#wd-dist');
+      dist.innerHTML = '';
+      const max = Math.max(1, ...s.d);
+      s.d.forEach((c, i) => {
+        const row = document.createElement('div'); row.className = 'dr';
+        const lab = document.createElement('span'); lab.textContent = i + 1;
+        const bar = document.createElement('div'); bar.className = 'db' + (g.status === 'won' && i === n - 1 ? ' hit' : '');
+        bar.style.width = Math.max(8, Math.round(c / max * 100)) + '%'; bar.textContent = c;
+        row.append(lab, bar); dist.appendChild(row);
+      });
+      show(endEl);
+    }
+
+    function shareText() {
+      const em = { correct: '\u{1F7E9}', present: '\u{1F7E8}', absent: '\u2B1B' };
+      const grid = g.guesses.map(gs => wdEvaluate(gs, g.answer).map(x => em[x]).join('')).join('\n');
+      return `Wordle Beresin (${dict[lang].name}) ${g.status === 'won' ? g.guesses.length : 'X'}/6\n${grid}`;
+    }
+    $('#wd-share').addEventListener('click', async () => {
+      const b = $('#wd-share'), text = shareText();
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {
+        try { const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); ok = document.execCommand('copy'); ta.remove(); } catch (e2) { /* gagal */ }
+      }
+      b.textContent = ok ? 'Tersalin!' : 'Gagal menyalin';
+      setTimeout(() => { b.textContent = 'Salin hasil'; }, 1800);
+    });
+
+    function start() {
+      loadGame();
+      hide(endEl);
+      msgEl.textContent = '';
+      renderBoard();
+      renderKeys();
+      if (g.status !== 'playing') finishGame(false);
+      check.checked = rec.checkDict[lang] !== undefined ? !!rec.checkDict[lang] : lang === 'en';
+      $('#wd-chint').textContent = lang === 'id'
+        ? 'Kamus kata Indonesia di sini masih terbatas, jadi cek kamus mati secara bawaan. Nyalakan kalau mau tebakan yang harus berupa kata nyata.'
+        : 'Tebakan harus berupa kata bahasa Inggris yang dikenal.';
+    }
+    function again() {
+      if (g.status === 'playing' && g.guesses.length > 0 && !confirm('Permainan ini belum selesai. Mulai kata baru?')) return;
+      newGame(); hide(endEl); msgEl.textContent = ''; renderBoard(); renderKeys();
+    }
+
+    check.addEventListener('change', () => { rec.checkDict[lang] = check.checked; saveRec(); check.blur(); });
+    $('#wd-new').addEventListener('click', e => { if (e.detail > 0) e.currentTarget.blur(); again(); });
+    $('#wd-again').addEventListener('click', () => { newGame(); hide(endEl); msgEl.textContent = ''; renderBoard(); renderKeys(); });
+    $$('#wd-lang .chip').forEach(ch => ch.addEventListener('click', e => {
+      if (e.detail > 0) ch.blur();
+      if (ch.dataset.v === lang) return;
+      $$('#wd-lang .chip').forEach(c => c.classList.toggle('on', c === ch));
+      lang = ch.dataset.v;
+      start();
+    }));
+
+    document.addEventListener('keydown', e => {
+      if (!inArena() || activePane() !== 'wd' || e.ctrlKey || e.metaKey || e.altKey) return;
+      const tg = e.target;
+      if (tg && (tg.tagName === 'TEXTAREA' || tg.tagName === 'SELECT' || (tg.tagName === 'INPUT' && !/^(checkbox|radio|button)$/.test(tg.type)))) return;
+      if (e.key === 'Enter') { if (tg && tg.tagName === 'BUTTON' && !tg.classList.contains('wd-key')) return; e.preventDefault(); press('enter'); }
+      else if (e.key === 'Backspace') { e.preventDefault(); press('back'); }
+      else if (/^[a-zA-Z]$/.test(e.key)) press(e.key.toLowerCase());
+    });
+
+    buildKeys();
+    start();
+    return {};
+  })();
 })();
 </script>
 </body>
