@@ -423,6 +423,7 @@ body.noscroll{overflow:hidden}
     <a class="nav" href="#/alat" data-nav="alat"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>Alat</a>
     <a class="nav" href="#/favorit" data-nav="favorit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 17l-5.2 2.7 1-5.9L3.5 9.7l5.9-.8z"/></svg>Favorit</a>
     <a class="nav" href="#/riwayat" data-nav="riwayat"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Riwayat</a>
+    <a class="nav" href="#/arena" data-nav="arena"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="10" rx="5"/><path d="M8 10.5v4M6 12.5h4M15.5 11.5h.01M17.5 13.5h.01"/></svg>Arena Mini</a>
   </nav>
 
   <main>
@@ -1385,8 +1386,6 @@ const TOOLS = [
     kw: 'catatan note ide daftar belanja tulis memo salin simpan otomatis jurnal todo kegiatan' },
   { id: 'pomodoro', tint: 't11', title: 'Timer Pomodoro', desc: 'Fokus belajar dengan sesi dan istirahat teratur',
     kw: 'pomodoro timer fokus belajar kerja istirahat break sesi konsentrasi hitung mundur produktif' },
-  { id: 'arena', tint: 't12', title: 'Arena Mini', desc: 'Tes ketik, refleks klik, dan Wordle',
-    kw: 'arena mini game permainan main hiburan mengetik ketik kecepatan typing wpm refleks reaksi klik wordle tebak kata kuis seru' },
   { id: 'kata', tint: 't4', title: 'Hitung Kata', desc: 'Cek jumlah kata dan karakter tugasmu',
     kw: 'kata karakter kalimat paragraf tulisan esai makalah skripsi hitung jumlah teks' },
   { id: 'ipk', tint: 't5', title: 'Hitung IPK', desc: 'Hitung IPS semester dan IPK kumulatif',
@@ -1559,7 +1558,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) 
 
 /* ========== Navigasi antar halaman ========== */
 const views = $$('.view');
-const NAV_PAGES = ['home', 'alat', 'favorit', 'riwayat'];
+const NAV_PAGES = ['home', 'alat', 'favorit', 'riwayat', 'arena'];
 let lastView = null;
 function route() {
   const key = location.hash.replace(/^#\/?/, '') || 'home';
