@@ -24,6 +24,13 @@
   --warn:#a4410f;
   --warn-bg:#fdeee3;
   --yellow:#ffc857;
+  --on-primary:#fff;
+  --primary-h:#096354;
+  --focus:#bfe3da;
+  --focus2:#7cc9b9;
+  --soft2:#cfe6df;
+  --dropb:#b5c9c4;
+  --dropbg:#f8fbfa;
 }
 *{box-sizing:border-box}
 [hidden]{display:none !important}
@@ -36,7 +43,7 @@ body{
 }
 .wrap{max-width:860px;margin:0 auto;padding:0 18px 40px}
 a{color:inherit}
-:focus-visible{outline:3px solid #7cc9b9;outline-offset:2px}
+:focus-visible{outline:3px solid var(--focus2);outline-offset:2px}
 
 /* Header */
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
@@ -81,7 +88,7 @@ input[type=text],input[type=number],input[type=datetime-local],input[type=time],
   background:#fff;color:var(--ink);font:inherit;font-size:16px;
 }
 textarea{min-height:220px;resize:vertical;line-height:1.6}
-input:focus,select:focus,textarea:focus{outline:3px solid #bfe3da;border-color:var(--primary)}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--focus);border-color:var(--primary)}
 .row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
 .row.w2{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .row.w3{grid-template-columns:repeat(auto-fit,minmax(125px,1fr))}
@@ -90,8 +97,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid #bfe3da;border-color:v
 .chip:hover{border-color:var(--primary)}
 .chip.on{background:var(--soft);border-color:var(--primary);color:var(--primary-d)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:12px;border:1.5px solid transparent;font:inherit;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none}
-.btn.primary{background:var(--primary);color:#fff}
-.btn.primary:hover{background:var(--primary-d)}
+.btn.primary{background:var(--primary);color:var(--on-primary)}
+.btn.primary:hover{background:var(--primary-h)}
 .btn.ghost{background:#fff;border-color:var(--line);color:var(--ink)}
 .btn.ghost:hover{border-color:var(--primary)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
@@ -101,7 +108,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid #bfe3da;border-color:v
 .icon-btn:hover:not(:disabled){border-color:var(--primary)}
 .icon-btn:disabled{opacity:.35;cursor:default}
 
-.drop{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;padding:26px 16px;border:2px dashed #b5c9c4;border-radius:18px;background:#f8fbfa;cursor:pointer;position:relative}
+.drop{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;padding:26px 16px;border:2px dashed var(--dropb);border-radius:18px;background:var(--dropbg);cursor:pointer;position:relative}
 .drop:hover,.drop.over,.drop:focus-within{border-color:var(--primary);background:var(--soft)}
 .drop svg{width:30px;height:30px;fill:none;stroke:var(--primary);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .drop strong{font-size:16px}
@@ -183,11 +190,11 @@ a.alert,div.alert{display:block;padding:13px 16px;border-radius:16px;background:
 .badge.late{background:#fbd9d3;color:#8a2412}
 .badge.p1{background:#fff1c9;color:#6b4a00}
 .badge.p2{background:#fbd9d3;color:#8a2412}
-.badge.today{background:var(--primary);color:#fff}
+.badge.today{background:var(--primary);color:var(--on-primary)}
 
 /* Jadwal kuliah */
 .day{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin-bottom:12px}
-.day.now{border-color:var(--primary);box-shadow:0 0 0 2px #bfe3da}
+.day.now{border-color:var(--primary);box-shadow:0 0 0 2px var(--focus)}
 .day h4{margin:0 0 8px;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
 .cls{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
 .cls:first-of-type{border-top:0}
@@ -226,7 +233,7 @@ body.noscroll{overflow:hidden}
 .search input{width:100%;min-height:58px;padding:0 54px 0 52px;border:1.5px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:16px;-webkit-appearance:none;appearance:none}
 .search input::-webkit-search-cancel-button{display:none}
 .search input::placeholder{color:#7b8f8c}
-.search input:focus{outline:3px solid #bfe3da;border-color:var(--primary)}
+.search input:focus{outline:3px solid var(--focus);border-color:var(--primary)}
 .search .clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:transparent;font-size:24px;line-height:1;color:var(--muted);cursor:pointer}
 .search .clear:hover{background:#eef4f2}
 
@@ -288,9 +295,10 @@ body.noscroll{overflow:hidden}
 
 /* Timer Pomodoro */
 .pm{text-align:center}
-.pm-focus{--ring:#0c7a68}.pm-short{--ring:#2f6fd6}.pm-long{--ring:#7a54c9}
+.pm-focus{--ring:var(--primary)}.pm-short{--ring:#2f6fd6}.pm-long{--ring:#7a54c9}
 .pm .chips{justify-content:center}
 .pm .chip.on{background:var(--ring);border-color:var(--ring);color:#fff}
+.pm-focus .chip.on{color:var(--on-primary)}
 .ringwrap{position:relative;width:min(280px,78vw);margin:20px auto 12px}
 .ring{width:100%;height:auto;display:block}
 .rtrack{fill:none;stroke:#e1ebe8;stroke-width:12}
@@ -304,7 +312,7 @@ body.noscroll{overflow:hidden}
 .actions.center .btn{flex:1 1 0;min-width:0;max-width:130px;padding:0 10px}
 .bars{display:flex;align-items:flex-end;gap:8px;height:120px;margin:16px 0 14px}
 .bars .col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%}
-.bars .bar{width:100%;max-width:36px;background:#cfe6df;border-radius:8px 8px 4px 4px;min-height:4px;transition:height .3s ease}
+.bars .bar{width:100%;max-width:36px;background:var(--soft2);border-radius:8px 8px 4px 4px;min-height:4px;transition:height .3s ease}
 .bars .bar.today{background:var(--primary)}
 .bars small{font-size:12px;color:var(--muted)}
 .bars b{font-size:12px}
@@ -320,9 +328,9 @@ body.noscroll{overflow:hidden}
 .ty-live .stat{flex:1;padding:10px 14px}
 .ty-live .stat b{font-size:26px}
 .ty-box{position:relative;height:132px;overflow:hidden;padding:12px 14px;border:1.5px solid var(--line);border-radius:16px;background:#fff;font-size:20px;line-height:36px;cursor:text;word-spacing:2px}
-.ty-box:focus-within{border-color:var(--primary);outline:3px solid #bfe3da}
+.ty-box:focus-within{border-color:var(--primary);outline:3px solid var(--focus)}
 .ty-box .w{display:inline-block;padding:0 4px;margin:0 1px;border-radius:6px;color:#4d6361}
-.ty-box .w.cur{background:#e3f2ed;color:var(--ink);box-shadow:inset 0 -2px 0 var(--primary)}
+.ty-box .w.cur{background:var(--soft);color:var(--ink);box-shadow:inset 0 -2px 0 var(--primary)}
 .ty-box .w.cur.bad{background:#fbd9d3;box-shadow:inset 0 -2px 0 #d4452f}
 .ty-box .w.ok{color:#0a7a55}
 .ty-box .w.no{color:#c4412b;text-decoration:line-through}
@@ -338,7 +346,7 @@ body.noscroll{overflow:hidden}
 .rf-pad[data-state="wait"]{background:#c8473a}
 .rf-pad[data-state="go"]{background:#1fa463}
 .rf-pad[data-state="early"]{background:#d4912a}
-.rf-pad[data-state="result"]{background:#0c7a68}
+.rf-pad[data-state="result"]{background:var(--primary);color:var(--on-primary)}
 .rf-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .rf-list .badge{min-height:30px;font-size:13px}
 
@@ -372,13 +380,30 @@ body.noscroll{overflow:hidden}
 .dist{display:grid;gap:5px;margin:12px 0}
 .dist .dr{display:grid;grid-template-columns:16px 1fr;align-items:center;gap:8px;font-size:13px;font-weight:700}
 .dist .db{min-width:26px;background:#9bb3ad;color:#fff;border-radius:5px;padding:1px 8px;text-align:right;font-size:12px}
-.dist .db.hit{background:var(--primary)}
+.dist .db.hit{background:var(--primary);color:var(--on-primary)}
 
 /* Edit Foto */
 .ed-tabs{margin-bottom:14px}
 .ed-panel[hidden]{display:none}
 .ed-corners{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 12px}
 .ed-sw{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* Tema warna (dibuka lewat pintasan rahasia) */
+:root[data-tema="biru"]{--primary:#1f5fd1;--primary-d:#1749a3;--primary-h:#1749a3;--soft:#e3ecfb;--bg:#f1f4fa;--line:#d6dfee;--focus:#bcd0f3;--focus2:#83a8e8;--soft2:#cfdcf3;--dropb:#b5c3dc;--dropbg:#f8fafd}
+:root[data-tema="hijau"]{--primary:#2e7d32;--primary-d:#1f5e23;--primary-h:#1f5e23;--soft:#e4f3e3;--bg:#f2f6f1;--line:#d9e4d6;--focus:#c3e3c1;--focus2:#8fcf8c;--soft2:#d3e8d1;--dropb:#bccdb8;--dropbg:#f9fbf8}
+:root[data-tema="kuning"]{--primary:#e8ac00;--primary-d:#8a5f00;--primary-h:#d39a00;--on-primary:#2b2100;--soft:#fff3cc;--bg:#faf6ea;--line:#e8dfc3;--focus:#f6e2a0;--focus2:#e8c657;--soft2:#f6e7b4;--dropb:#d8cca4;--dropbg:#fffdf6}
+:root[data-tema="merahmuda"]{--primary:#d6336c;--primary-d:#a8255a;--primary-h:#a8255a;--soft:#fde8ef;--bg:#fbf3f5;--line:#ecd9df;--focus:#f6c6d6;--focus2:#ec9bb7;--soft2:#f8d9e3;--dropb:#dcbcc8;--dropbg:#fdf8fa}
+:root[data-tema="ungu"]{--primary:#6d3fc4;--primary-d:#54309a;--primary-h:#54309a;--soft:#ece5f9;--bg:#f4f2f8;--line:#ddd7e8;--focus:#d3c6f0;--focus2:#ad98e0;--soft2:#dcd2f2;--dropb:#c5bbd9;--dropbg:#faf9fd}
+.tm-back{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:18px;background:rgba(16,40,43,.5)}
+.tm-card{width:min(380px,100%);max-height:100%;overflow:auto;background:#fff;border-radius:22px;padding:20px;box-shadow:0 20px 60px rgba(16,40,43,.3)}
+.tm-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.tm-head h3{margin:0;font-size:19px;font-weight:800}
+.tm-list{display:grid;gap:8px;margin:14px 0 0}
+.tm-opt{display:flex;align-items:center;gap:12px;min-height:50px;padding:0 14px;border:1.5px solid var(--line);border-radius:14px;background:#fff;font:inherit;font-weight:600;color:var(--ink);cursor:pointer;text-align:left}
+.tm-opt:hover{border-color:var(--primary)}
+.tm-opt i{width:24px;height:24px;border-radius:50%;flex:none;border:1px solid rgba(16,40,43,.2)}
+.tm-opt[aria-pressed="true"]{border-color:var(--primary);background:var(--soft)}
+.tm-opt[aria-pressed="true"]::after{content:"\2713";margin-left:auto;font-weight:800;color:var(--primary-d)}
 
 .foot{margin-top:26px;text-align:center;font-size:13px;color:var(--muted)}
 
@@ -399,6 +424,7 @@ body.noscroll{overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important;scroll-behavior:auto !important}}
 </style>
+<script>try{var __t=JSON.parse(localStorage.getItem('beresin.tema'));if(/^(biru|hijau|kuning|merahmuda|ungu)$/.test(__t))document.documentElement.setAttribute('data-tema',__t)}catch(e){}</script>
 </head>
 <body>
 <div class="wrap">
@@ -512,8 +538,15 @@ body.noscroll{overflow:hidden}
 
       <div class="card">
         <div class="field">
-          <label class="lb" for="k-kb">Batas ukuran file (KB)</label>
-          <input id="k-kb" type="number" inputmode="numeric" min="5" step="1" value="200">
+          <label class="lb" for="k-kb">Batas ukuran file</label>
+          <div style="display:grid;grid-template-columns:1fr 112px;gap:10px">
+            <input id="k-kb" type="number" inputmode="decimal" min="0" step="any" value="200">
+            <select id="k-unit" aria-label="Satuan ukuran">
+              <option value="1" selected>KB</option>
+              <option value="1024">MB</option>
+              <option value="1048576">GB</option>
+            </select>
+          </div>
           <div class="chips" style="margin-top:10px" id="k-chips">
             <button type="button" class="chip" data-kb="50">50 KB</button>
             <button type="button" class="chip" data-kb="100">100 KB</button>
@@ -1012,7 +1045,7 @@ body.noscroll{overflow:hidden}
     <section class="view" data-view="edit" data-title="Edit Foto | Beresin" hidden>
       <div class="head">
         <h2>Edit Foto</h2>
-        <p>Bulatkan sudut gambar, putar, atur warna, atau ubah ukuran. Format hasil sama dengan foto aslinya.</p>
+        <p>Bulatkan sudut gambar, putar, atur warna, atau ubah ukuran.</p>
       </div>
 
       <div class="card">
@@ -1097,6 +1130,14 @@ body.noscroll{overflow:hidden}
               <button type="button" class="chip" data-s="0.25">25%</button>
             </div>
             <div class="hint" id="e-dim"></div>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:16px">
+          <span class="lb">Format file saat diunduh</span>
+          <div class="chips" id="e-fmts">
+            <button type="button" class="chip on" data-o="asli" id="e-fmt-asli">Sama seperti aslinya</button>
+            <button type="button" class="chip" data-o="png">PNG</button>
           </div>
         </div>
 
@@ -2031,17 +2072,25 @@ const QR = (() => {
 
 /* ========== 1. Kompres foto ========== */
 (() => {
-  const drop = $('#k-drop'), input = $('#k-file'), kb = $('#k-kb'), go = $('#k-go');
+  const drop = $('#k-drop'), input = $('#k-file'), kb = $('#k-kb'), unit = $('#k-unit'), go = $('#k-go');
   const msg = $('#k-msg'), res = $('#k-res'), prev = $('#k-prev');
   let cur = null, out = null, outUrl = null;
 
+  /* Batas ukuran selalu dihitung dalam KB; satuan MB = 1024 KB, GB = 1024 MB */
+  const targetKB = () => Math.round(+kb.value * +unit.value);
+  const limitText = k => (k >= 1048576 ? nf.format(k / 1048576) + ' GB' : k >= 1024 ? nf.format(k / 1024) + ' MB' : nf0.format(k) + ' KB');
   $$('#k-chips .chip').forEach(ch => ch.addEventListener('click', () => {
-    kb.value = ch.dataset.kb; syncChips();
+    const v = +ch.dataset.kb;
+    if (v >= 1024 && v % 1024 === 0) { kb.value = v / 1024; unit.value = '1024'; }   // 1024 KB tampil sebagai 1 MB
+    else { kb.value = v; unit.value = '1'; }
+    syncChips();
   }));
   function syncChips() {
-    $$('#k-chips .chip').forEach(c => c.classList.toggle('on', c.dataset.kb === String(kb.value)));
+    const t = targetKB();
+    $$('#k-chips .chip').forEach(c => c.classList.toggle('on', +c.dataset.kb === t));
   }
   kb.addEventListener('input', syncChips);
+  unit.addEventListener('change', syncChips);
 
   function clearPick() {
     if (go.disabled) return;   // sedang memproses
@@ -2070,7 +2119,7 @@ const QR = (() => {
 
   go.addEventListener('click', async () => {
     if (!cur) return;
-    const t = Math.round(+kb.value);
+    const t = targetKB();
     if (!(t >= 5)) { showMsg(msg, 'Isi batas ukuran minimal 5 KB.'); return; }
     hide(msg); hide(res);
     go.disabled = true; go.textContent = 'Sedang memproses...';
@@ -2092,7 +2141,7 @@ const QR = (() => {
 
       if (same) {
         $('#k-title').textContent = 'Fotomu sudah cukup kecil';
-        $('#k-text').textContent = `Ukuran fotomu ${fmt(orig)}, sudah di bawah ${nf0.format(t)} KB. Foto tidak diubah.`;
+        $('#k-text').textContent = `Ukuran fotomu ${fmt(orig)}, sudah di bawah ${limitText(t)}. Foto tidak diubah.`;
       } else if (r.ok) {
         const pct = Math.round((1 - r.blob.size / orig) * 100);
         $('#k-title').textContent = 'Selesai';
@@ -4030,8 +4079,10 @@ function wdEvaluate(guess, answer) {
   const work = $('#e-work'), tools = $('#e-tools'), cv = $('#e-cv'), info = $('#e-info'), res = $('#e-res');
   const MIME = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' };
   const DEF = () => ({ rot: 0, fh: false, fv: false, rad: 20, corners: [true, true, true, true], bg: '#ffffff',
-    br: 0, ct: 0, sa: 0, filter: 'none', scale: 1 });
+    br: 0, ct: 0, sa: 0, filter: 'none', scale: 1, out: 'asli' });
   let cur = null, st = DEF(), raf = 0;
+  const outType = () => (st.out === 'png' ? 'image/png' : cur.type);
+  const outExt = () => (st.out === 'png' ? 'png' : cur.ext);
 
   bindDrop(drop, input, files => open(files[0]));
 
@@ -4110,7 +4161,7 @@ function wdEvaluate(guess, answer) {
       ctx.closePath(); ctx.fill();
       ctx.globalCompositeOperation = 'source-over';
     }
-    if (cur.type === 'image/jpeg') {            // JPG tidak punya transparansi
+    if (outType() === 'image/jpeg') {            // JPG tidak punya transparansi
       ctx.globalCompositeOperation = 'destination-over';
       ctx.fillStyle = st.bg; ctx.fillRect(0, 0, W, H);
       ctx.globalCompositeOperation = 'source-over';
@@ -4123,7 +4174,7 @@ function wdEvaluate(guess, answer) {
     const full = dims(1), s = Math.min(1, 900 / Math.max(full.W, full.H));
     draw(cv, s);
     const out = dims(st.scale);
-    info.textContent = `Hasil: ${nf0.format(out.W)} x ${nf0.format(out.H)} px, format ${cur.ext.toUpperCase()}`;
+    info.textContent = `Hasil: ${nf0.format(out.W)} x ${nf0.format(out.H)} px, format ${outExt().toUpperCase()}`;
     $('#e-dim').textContent = `Ukuran hasil: ${nf0.format(out.W)} x ${nf0.format(out.H)} px`;
   }
   function schedule() { if (!raf) raf = requestAnimationFrame(preview); }
@@ -4135,10 +4186,12 @@ function wdEvaluate(guess, answer) {
     ['br', 'ct', 'sa'].forEach(k => { $('#e-' + k).value = st[k]; $('#e-' + k + 'val').textContent = st[k]; });
     $$('#e-filters .chip').forEach(c => c.classList.toggle('on', c.dataset.f === st.filter));
     $$('#e-scales .chip').forEach(c => c.classList.toggle('on', +c.dataset.s === st.scale));
-    const jpg = cur && cur.type === 'image/jpeg';
-    $('#e-bgbox').hidden = !jpg;
-    $('#e-bgnote').hidden = !!jpg;
-    $('#e-bgnote').textContent = cur && cur.type === 'image/webp' ? 'Sudut yang dipotong akan transparan (WEBP mendukung transparan).' : 'Sudut yang dipotong akan transparan (PNG mendukung transparan).';
+    $$('#e-fmts .chip').forEach(c => c.classList.toggle('on', c.dataset.o === st.out));
+    $('#e-fmt-asli').textContent = cur ? `Sama seperti aslinya (${cur.ext.toUpperCase()})` : 'Sama seperti aslinya';
+    const t = cur ? outType() : '';
+    $('#e-bgbox').hidden = t !== 'image/jpeg';
+    $('#e-bgnote').hidden = t === 'image/jpeg';
+    $('#e-bgnote').textContent = t === 'image/webp' ? 'Sudut yang dipotong akan transparan (WEBP mendukung transparan).' : 'Sudut yang dipotong akan transparan (PNG mendukung transparan).';
   }
 
   /* Tab alat */
@@ -4165,6 +4218,10 @@ function wdEvaluate(guess, answer) {
     const b = e.target.closest('.chip'); if (!b) return;
     st.scale = +b.dataset.s; $$('#e-scales .chip').forEach(c => c.classList.toggle('on', c === b)); schedule();
   });
+  $('#e-fmts').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    st.out = b.dataset.o; syncUI(); schedule();
+  });
   $('#e-reset').addEventListener('click', () => { st = DEF(); syncUI(); res.textContent = ''; schedule(); });
 
   /* Simpan dengan format yang sama seperti foto asli */
@@ -4174,15 +4231,103 @@ function wdEvaluate(guess, answer) {
     try {
       const out = document.createElement('canvas');
       draw(out, st.scale);
-      let type = cur.type, ext = cur.ext;
+      const want = outType();
+      let type = want, ext = outExt();
       let blob = await toBlob(out, type, 0.95);
       if (!blob || blob.type !== type) { blob = await toBlob(out, 'image/png'); type = 'image/png'; ext = 'png'; }
       saveBlob(blob, `${baseName(cur.file.name)}-edit.${ext}`);
-      res.textContent = type === cur.type
-        ? `Tersimpan sebagai ${ext.toUpperCase()} (${fmt(blob.size)}), sama seperti foto aslinya.`
-        : `Browser ini tidak bisa menyimpan ${cur.ext.toUpperCase()}, jadi hasilnya disimpan sebagai PNG (${fmt(blob.size)}).`;
+      res.textContent = type !== want
+        ? `Browser ini tidak bisa menyimpan ${outExt().toUpperCase()}, jadi hasilnya disimpan sebagai PNG (${fmt(blob.size)}).`
+        : st.out === 'png' || type === 'image/png' && cur.type !== 'image/png'
+          ? `Tersimpan sebagai PNG (${fmt(blob.size)}).`
+          : `Tersimpan sebagai ${ext.toUpperCase()} (${fmt(blob.size)}), sama seperti foto aslinya.`;
     } catch (e) { res.textContent = ''; showMsg(msg, 'Foto gagal disimpan. Coba kecilkan ukurannya lalu ulangi.'); }
   });
+})();
+
+/* ========== Tema warna (pintasan rahasia: Ctrl + ; + ') ========== */
+(() => {
+  const THEMES = [
+    { id: 'toska', name: 'Hijau Toska (default)', color: '#0c7a68' },
+    { id: 'biru', name: 'Biru', color: '#1f5fd1' },
+    { id: 'hijau', name: 'Hijau', color: '#2e7d32' },
+    { id: 'kuning', name: 'Kuning', color: '#e8ac00' },
+    { id: 'merahmuda', name: 'Merah muda', color: '#d6336c' },
+    { id: 'ungu', name: 'Ungu', color: '#6d3fc4' }
+  ];
+  const root = document.documentElement;
+  let modal = null, lastFocus = null;
+  let current = appStore.get('beresin.tema', 'toska');
+  if (!THEMES.some(t => t.id === current)) current = 'toska';
+
+  function apply(id) {
+    current = id;
+    if (id === 'toska') root.removeAttribute('data-tema'); else root.setAttribute('data-tema', id);
+    appStore.set('beresin.tema', id);
+    if (modal) $$('.tm-opt', modal).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === id)));
+  }
+  apply(current);
+
+  function build() {
+    modal = document.createElement('div');
+    modal.className = 'tm-back';
+    modal.hidden = true;
+    modal.innerHTML = '<div class="tm-card" role="dialog" aria-modal="true" aria-labelledby="tm-title">' +
+      '<div class="tm-head"><h3 id="tm-title">Pengaturan warna</h3><button type="button" class="icon-btn" id="tm-x" aria-label="Tutup">&times;</button></div>' +
+      '<div class="tm-list"></div></div>';
+    const list = $('.tm-list', modal);
+    THEMES.forEach(t => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'tm-opt'; b.dataset.id = t.id;
+      b.setAttribute('aria-pressed', String(t.id === current));
+      b.innerHTML = '<i></i><span></span>';
+      $('i', b).style.background = t.color;
+      $('span', b).textContent = t.name;
+      b.addEventListener('click', () => apply(t.id));
+      list.appendChild(b);
+    });
+    $('#tm-x', modal).addEventListener('click', close);
+    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+    modal.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      const f = $$('button', modal), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    document.body.appendChild(modal);
+  }
+  function open() {
+    if (!modal) build();
+    if (typeof closeMenu === 'function') closeMenu(false);
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add('noscroll');
+    ($('.tm-opt[aria-pressed="true"]', modal) || $('.tm-opt', modal)).focus();
+  }
+  function close() {
+    if (!modal || modal.hidden) return;
+    modal.hidden = true;
+    if (!(typeof menuOpen !== 'undefined' && menuOpen)) document.body.classList.remove('noscroll');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  /* Ctrl + ; + ' : tahan Ctrl, tekan ; lalu ' (boleh bersamaan atau berurutan selama Ctrl masih ditahan) */
+  let armed = false;
+  addEventListener('keydown', e => {
+    const semi = e.code === 'Semicolon' || e.key === ';';
+    if (e.ctrlKey && !e.metaKey && !e.altKey && semi) { armed = true; return; }
+    const quote = e.code === 'Quote' || e.key === "'";
+    if (armed && e.ctrlKey && quote) {
+      e.preventDefault();
+      armed = false;
+      if (modal && !modal.hidden) close(); else open();
+      return;
+    }
+    if (e.key !== 'Control' && e.key !== 'Shift') armed = false;
+  });
+  addEventListener('keyup', e => { if (e.key === 'Control') armed = false; });
+  addEventListener('blur', () => { armed = false; });
 })();
 </script>
 </body>
